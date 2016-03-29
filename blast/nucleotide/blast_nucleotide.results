@@ -1,0 +1,225 @@
+BLASTN 2.2.29+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: yeast.nt
+           17 sequences; 12,155,026 total letters
+
+
+
+Query= gi|152022604|gb|CJ994915.1|CJ994915 CJ994915 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-89 5', mRNA sequence
+
+Length=556
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 6478420455
+
+
+Query= gi|152022603|gb|CJ994914.1|CJ994914 CJ994914 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-87 5', mRNA sequence
+
+Length=557
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 6490575090
+
+
+Query= gi|152022602|gb|CJ994913.1|CJ994913 CJ994913 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-83 5', mRNA sequence
+
+Length=538
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|6319354|ref|NC_001134.1| Saccharomyces cerevisiae chromosome...    322   5e-88
+
+
+> gi|6319354|ref|NC_001134.1| Saccharomyces cerevisiae chromosome 
+II, complete chromosome sequence
+Length=813140
+
+ Score =   322 bits (174),  Expect = 5e-88
+ Identities = 287/343 (84%), Gaps = 3/343 (1%)
+ Strand=Plus/Plus
+
+Query  14      GGATTTTTNTTTACTGGTGATGGTAGCAAACCATTTCAGCAATACGTTGCAGAACTTTTA  73
+               |||||||| ||||| || ||||| || ||||||||||| |||||  |||| ||| | |||
+Sbjct  516766  GGATTTTTGTTTACGGGCGATGGAAGTAAACCATTTCAACAATATATTGCTGAATTATTA  516825
+
+Query  74      AATCACAATATTCCGGTATTGATCTATGCAGGTGATAAAGACTATATATGCAATTGGTTG  133
+               |||||||| ||||||||||| || ||||| |||||||| || ||||| || |||||| ||
+Sbjct  516826  AATCACAACATTCCGGTATTAATATATGCGGGTGATAAGGATTATATTTGTAATTGGCTG  516885
+
+Query  134     GGAAATCACGCGTGGACTAATGAACTGGAGTGGATCAATAAATCTATGTATCAGAGGAGA  193
+               ||||| || || ||| | |||||  |||| ||||||||||||  || ||||||||| || 
+Sbjct  516886  GGAAACCATGCTTGGTCCAATGAGTTGGAATGGATCAATAAACGTAGGTATCAGAGAAGG  516945
+
+Query  194     AGGTTGAGATCATGGGTTAGTGACGAAACTGGTGAAGAGTTTGGACAAGTCAAGAACTAT  253
+               | ||| ||| ||||||| ||| | ||||| ||||||||||| ||||||||||||||||||
+Sbjct  516946  ATGTTAAGACCATGGGTCAGTAAAGAAACAGGTGAAGAGTTGGGACAAGTCAAGAACTAT  517005
+
+Query  254     GGCCNNCTTT-ACCTTTTTAAGGGTATTTGATGCAGGCCACATGGTGCCCTATGATCAAC  312
+               ||||  |||| |||||||| ||  |||  ||||| || || |||||||||||||||||||
+Sbjct  517006  GGCC--CTTTCACCTTTTTGAGAATATACGATGCCGGTCATATGGTGCCCTATGATCAAC  517063
+
+Query  313     CGGAGGCAAGTTTACAAATGGTTAACAGCTGGATTTCCGGTAA  355
+               |||||||||||||  ||||||| ||||| ||||||||||||||
+Sbjct  517064  CGGAGGCAAGTTTGGAAATGGTCAACAGTTGGATTTCCGGTAA  517106
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 6259637025
+
+
+Query= gi|152022601|gb|CJ994912.1|CJ994912 CJ994912 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-72 5', mRNA sequence
+
+Length=555
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 6466265820
+
+
+Query= gi|152022600|gb|CJ994911.1|CJ994911 CJ994911 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-68 5', mRNA sequence
+
+Length=486
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 5627596005
+
+
+Query= gi|152022599|gb|CJ994910.1|CJ994910 CJ994910 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-66 5', mRNA sequence
+
+Length=544
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 6332564835
+
+
+Query= gi|152022597|gb|CJ994908.1|CJ994908 CJ994908 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-61 5', mRNA sequence
+
+Length=471
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 5445276480
+
+
+Query= gi|152022596|gb|CJ994907.1|CJ994907 CJ994907 normalized
+Saccharomyces pastorianus cDNA libraries Saccharomyces pastorianus
+cDNA clone B067-53 5', mRNA sequence
+
+Length=511
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 5931461880
+
+
+  Database: yeast.nt
+    Posted date:  Feb 23, 2016  12:09 AM
+  Number of letters in database: 12,155,026
+  Number of sequences in database:  17
+
+
+
+Matrix: blastn matrix 1 -2
+Gap Penalties: Existence: 0, Extension: 2.5

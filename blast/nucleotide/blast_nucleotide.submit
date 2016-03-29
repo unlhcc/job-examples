@@ -1,0 +1,15 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=1gb
+#SBATCH --time=00:15:00
+#SBATCH --job-name=blast_nucleotide
+#SBATCH --error=blast.%J.err
+#SBATCH --output=blast.%J.out
+#SBATCH --qos=short
+
+module load blast/2.2.29
+cp -R db/ /tmp
+cp yeast.query /tmp
+blastn -db /tmp/db/yeast.nt -query /tmp/yeast.query -out /tmp/blast_nucleotide.results
+cp /tmp/blast_nucleotide.results .

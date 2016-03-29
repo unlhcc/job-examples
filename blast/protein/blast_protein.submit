@@ -1,0 +1,15 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=1gb
+#SBATCH --time=00:15:00
+#SBATCH --job-name=blast_protein
+#SBATCH --error=blast.%J.err
+#SBATCH --output=blast.%J.out
+#SBATCH --qos=short
+
+module load blast/2.2.29
+cp -R db/ /tmp
+cp mouse.query /tmp
+blastp -db /tmp/db/mouse.protein.faa -query /tmp/mouse.query -out /tmp/blast_protein.results
+cp /tmp/blast_protein.results .
