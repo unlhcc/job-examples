@@ -16,3 +16,5 @@ Data:
 Query = yeast.nt.fasta
 Query = yeast.aa.fasta
 Database = $BLAST/nt.00.*
+
+blast/ has examples with other query and db files
