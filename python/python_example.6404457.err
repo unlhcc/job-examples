@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "helloworld.py", line 6, in <module>
-    print(i + " minute has elapsed.")
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
