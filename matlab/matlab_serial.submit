@@ -5,8 +5,8 @@
 #SBATCH --job-name=matlab_serial
 #SBATCH --error=matlab_serial.%J.err
 #SBATCH --output=matlab_serial.%J.out
-# #SBATCH --reservation=glu4class
+#SBATCH --reservation=nres879
 
-module load matlab/r2016a
+module load matlab/r2014b
 
 matlab -nodisplay -r "serial_main, quit"

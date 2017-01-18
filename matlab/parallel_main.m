@@ -3,10 +3,10 @@
 %Each MATLAB worker is then asked to print to the screen (MATLAB command)
 %their assigned for-loop index "i". 
 
-number = getenv('SLURM_NTASKS_PER_NODE');
-matlabpool(number);
-parfor i=1:matlabpool('size')   
+number = str2num(getenv('SLURM_NTASKS_PER_NODE'));
+poolObj = parpool(number);
+parfor i=1:poolObj.NumWorkers   
    i
 end
-matlabpool close;
+delete(gcp('nocreate'));
 
