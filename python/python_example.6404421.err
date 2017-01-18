@@ -1,4 +1,0 @@
-  File "helloworld.py", line 5
-    if (i == 1)
-              ^
-SyntaxError: invalid syntax
