@@ -1,0 +1,13 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=5gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=python_example
+#SBATCH --error=python_example.%J.err
+#SBATCH --output=python_example.%J.out
+# #SBATCH --reservation=glu4class
+
+module load python/3.5
+
+python helloworld.py

@@ -1,0 +1,13 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=5
+#SBATCH --mem-per-cpu=1024
+#SBATCH --time=00:10:00
+#SBATCH --job-name=matlab_parallel
+#SBATCH --error=matlab_parallel..%J.err
+#SBATCH --output=matlab_parallel.%J.out
+# #SBATCH --reservation=glu4class
+
+module load matlab/r2016a
+
+matlab -nodisplay -r "parallel_main, quit"

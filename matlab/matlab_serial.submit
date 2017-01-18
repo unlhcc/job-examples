@@ -1,0 +1,12 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --mem=5gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=matlab_serial
+#SBATCH --error=matlab_serial.%J.err
+#SBATCH --output=matlab_serial.%J.out
+# #SBATCH --reservation=glu4class
+
+module load matlab/r2016a
+
+matlab -nodisplay -r "serial_main, quit"
