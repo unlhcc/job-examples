@@ -6,6 +6,7 @@
 #SBATCH --job-name=blast_nt_multi
 #SBATCH --error=blast.nt.multi.%J.err
 #SBATCH --output=blast.nt.multi.%J.out
+#SBATCH --reservation=glu4class
 
 module load blast/2.4
 module load biodata/1.0
