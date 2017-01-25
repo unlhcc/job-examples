@@ -14,5 +14,5 @@ module load biodata/1.0
 cp $BLAST/nt.00.* /tmp
 cp yeast.nt.fasta /tmp
 
-time blastn -db /tmp/nt.00 -query /tmp/yeast.nt.fasta -out /tmp/blast_nt_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
+blastn -db /tmp/nt.00 -query /tmp/yeast.nt.fasta -out /tmp/blast_nt_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
 cp /tmp/blast_nt_multi.alignments .

@@ -15,5 +15,5 @@ cp yeast.aa.fasta /tmp
 
 makeblastdb -in /tmp/yeast.aa -dbtype prot -out /tmp/yeast.aa.db
 
-time blastp -db /tmp/yeast.aa.db -query /tmp/yeast.aa.fasta -out /tmp/blast_aa_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
+blastp -db /tmp/yeast.aa.db -query /tmp/yeast.aa.fasta -out /tmp/blast_aa_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
 cp /tmp/blast_aa_multi.alignments .
