@@ -1,0 +1,13 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=5gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=R_multi_example
+#SBATCH --error=R_multi_example.%J.err
+#SBATCH --output=R_multi_example.%J.out
+#SBATCH --reservation=nres879
+
+module load R/3.3
+
+R CMD BATCH R_multi.R
