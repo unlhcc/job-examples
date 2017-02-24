@@ -6,8 +6,9 @@
 #SBATCH --job-name=matlab_parallel
 #SBATCH --error=matlab_parallel.%J.err
 #SBATCH --output=matlab_parallel.%J.out
-#SBATCH --reservation=nres879
+#SBATCH --reservation=unk
 
 module load matlab/r2014b
 
+mkdir -p /tmp/$SLURM_JOB_ID
 matlab -nodisplay -r "parallel_main, quit"

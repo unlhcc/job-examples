@@ -8,4 +8,4 @@
 #SBATCH --output=get_data.%J.out
 #SBATCH --partition=devel
 
-bash get_data_para.sh
+bash get_data.sh
