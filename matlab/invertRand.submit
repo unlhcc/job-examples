@@ -1,0 +1,14 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=devel
+#SBATCH --time=00:10:00
+#SBATCH --mem-per-cpu=10gb
+#SBATCH --job-name=invertRand
+#SBATCH --error=invertRand.%J.err
+#SBATCH --output=invertRand.%J.out
+
+module load matlab/r2014b
+
+mkdir -p /tmp/$SLURM_JOB_ID
+matlab -nodisplay -r "invertRand('10^4'), quit"
