@@ -1,0 +1,13 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --reservation=unk
+#SBATCH --time=00:10:00
+#SBATCH --mem-per-cpu=4gb
+#SBATCH --job-name=mathematica
+#SBATCH --error=mathematica.%J.err
+#SBATCH --output=mathematica.%J.out
+
+module load mathematica
+
+wolfram -script hello_world.wl
