@@ -5,7 +5,7 @@ n = str2num(n);
 H = rand(n,n);
 
 % create cluster object
-i=str2num(getenv('SLURM_NTASKS_PER_NODE'));
+i=str2num(getenv('SLURM_TASKS_PER_NODE'));
 pc = parcluster('local');
 
 % direct storage to tmp folder
