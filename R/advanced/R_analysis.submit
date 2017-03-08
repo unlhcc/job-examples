@@ -1,0 +1,10 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --mem=16gb
+#SBATCH --time=10:00:00
+#SBATCH --job-name=R_analysis
+#SBATCH --error=R_analysis.%J.err
+#SBATCH --output=R_analysis.%J.out
+
+module load R/3.3
+R CMD BATCH R_analysis.R
