@@ -1,0 +1,54 @@
+# The UNIVERSE defines an execution environment. You will almost always use VANILLA.
+Universe = vanilla
+
+# These are good base requirements for your jobs on the OSG. It is specific on OS and
+# OS version, core count and memory, and wants to use the software modules. 
+Requirements = OSGVO_OS_STRING == "RHEL 6" && TARGET.Arch == "X86_64" && HAS_MODULES == True 
+request_cpus = 1
+request_memory = 1 GB
+
+# executable is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+executable = ../scalingup-python-wrapper.sh 
+
+# files transferred into the job sandbox
+transfer_input_files = ../rosen_brock_brute_opt.py
+
+# error and output are the error and output channels from your job
+# that HTCondor returns from the remote host.
+output = Log/job.out.$(Cluster).$(Process)
+error = Log/job.error.$(Cluster).$(Process)
+
+# The log file is where HTCondor places information about your
+# job's status, success, and resource consumption.
+log = Log/job.log.$(Cluster).$(Process)
+
+# Send the job to Held state on failure. 
+on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)  
+
+# Periodically retry the jobs every 60 seconds, up to a maximum of 5 retries. 
+# The RANDOM_INTEGER(60, 600, 120) means random integers are generated between 
+# 60 and 600 seconds with a step size of 120 seconds. The failed jobs are 
+# randomly released with a spread of 1-10 minutes.  Releasing multiple jobs at 
+# the same time causes stress for the login node, so the random spread is a 
+# good approach to periodically release the failed jobs. 
+
+PeriodicRelease = ( (CurrentTime - EnteredCurrentStatus) > $RANDOM_INTEGER(60, 600, 120) ) && ((NumJobStarts < 5))
+
+arguments = $(x_low) $(x_high) $(y_low) $(y_high)
+
+# Queue command  
+queue x_low x_high y_low y_high from (
+    -9, 9, -9, 9
+    -8, 8, -8, 8
+    -7, 7, -7, 7
+    -6, 6, -6, 6
+    -5, 5, -5, 5
+    -4, 4, -4, 4
+    -3, 3, -3, 3
+    -2, 2, -2, 2
+    -1, 1, -1, 1
+  )
+
+
+
