@@ -4,7 +4,7 @@ otu_matrix <- as.matrix(read.csv("otu_table.csv"))
 # replace any missing values with 0.1
 otu_matrix[is.na(otu_matrix)] <- 0.1
 
-# normalize the matrix using standard normal
+# normalize the matrix
 otu_matrix <- scale(otu_matrix)
 
 # convert all values to the absolute value
