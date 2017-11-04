@@ -6,7 +6,6 @@
 #SBATCH --job-name=python_example
 #SBATCH --error=python_example.%J.err
 #SBATCH --output=python_example.%J.out
-#SBATCH --reservation=nres879
 
 module load python/3.5
 

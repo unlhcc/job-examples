@@ -1,0 +1,10 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=5gb
+#SBATCH --time=00:20:00
+#SBATCH --job-name=get_data
+#SBATCH --error=get_data.%J.err
+#SBATCH --output=get_data.%J.out
+
+bash get_data.sh

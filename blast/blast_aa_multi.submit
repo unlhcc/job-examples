@@ -6,7 +6,6 @@
 #SBATCH --job-name=blast_aa_multi
 #SBATCH --error=blast.aa.multi.%J.err
 #SBATCH --output=blast.aa.multi.%J.out
-#SBATCH --reservation=unk
 
 module load blast/2.4
 

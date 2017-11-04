@@ -6,13 +6,12 @@
 #SBATCH --job-name=blast_nt_multi
 #SBATCH --error=blast.nt.multi.%J.err
 #SBATCH --output=blast.nt.multi.%J.out
-#SBATCH --reservation=unk
 
 module load blast/2.4
 module load biodata/1.0
 
-cp $BLAST/nt.00.* /tmp
-cp yeast.nt.fasta /tmp
+cp $BLAST/nt.00.* /scratch
+cp yeast.nt.fasta /scratch
 
-blastn -db /tmp/nt.00 -query /tmp/yeast.nt.fasta -out /tmp/blast_nt_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
-cp /tmp/blast_nt_multi.alignments .
+blastn -db /scratch/nt.00 -query /tmp/yeast.nt.fasta -out /tmp/blast_nt_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE 
+cp /scratch/blast_nt_multi.alignments .
