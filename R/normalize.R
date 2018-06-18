@@ -1,5 +1,5 @@
 # read in the biom file
-otu_matrix <- as.matrix(read.table("otu_table.csv"))
+otu_matrix <- as.matrix(read.table("otu_table.csv.gz"))
 
 # replace any missing values with 0.1
 otu_matrix[is.na(otu_matrix)] <- 0.1
