@@ -4,8 +4,9 @@
 #SBATCH --time=00:10:00
 #SBATCH --mem-per-cpu=10gb
 #SBATCH --job-name=invertRand
-#SBATCH --error=invertRand.%J.err
-#SBATCH --output=invertRand.%J.out
+#SBATCH --reservation=2018-summer
+#SBATCH --error=serial.%J.err
+#SBATCH --output=serial.%J.out
 
 module load matlab/r2014b
 
