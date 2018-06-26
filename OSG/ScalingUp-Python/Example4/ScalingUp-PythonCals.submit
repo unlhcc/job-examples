@@ -3,7 +3,7 @@ Universe = vanilla
 
 # These are good base requirements for your jobs on the OSG. It is specific on OS and
 # OS version, core count and memory, and wants to use the software modules. 
-Requirements = OSGVO_OS_STRING == "RHEL 6" && TARGET.Arch == "X86_64" && HAS_MODULES == True 
+Requirements = (( OSGVO_OS_STRING == "RHEL 6" ) || OSGVO_OS_STRING == "RHEL 7" )) && TARGET.Arch == "X86_64" && HAS_MODULES == True 
 request_cpus = 1
 request_memory = 1 GB
 
