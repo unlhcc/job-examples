@@ -5,7 +5,6 @@
 #SBATCH --job-name=matlab_serial
 #SBATCH --error=matlab_serial.%J.err
 #SBATCH --output=matlab_serial.%J.out
-#SBATCH --reservation=unk
 
 module load matlab/r2014b
 

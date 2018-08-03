@@ -6,7 +6,6 @@
 #SBATCH --job-name=matlab_parallel
 #SBATCH --error=matlab_parallel.%J.err
 #SBATCH --output=matlab_parallel.%J.out
-#SBATCH --reservation=unk
 
 module load matlab/r2014b
 

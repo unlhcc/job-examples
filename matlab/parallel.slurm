@@ -4,7 +4,6 @@
 #SBATCH --time=00:10:00
 #SBATCH --mem-per-cpu=1gb
 #SBATCH --job-name=invertRandArray
-#SBATCH --reservation=2018-summer
 #SBATCH --error=parallel.%J.err
 #SBATCH --output=parallel.%J.out
 
