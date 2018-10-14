@@ -1,0 +1,4 @@
+jupyter/.ipynb_checkpoints
+jupyter/data/airline*
+*/*.err
+*/*.out
