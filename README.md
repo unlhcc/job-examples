@@ -1,5 +1,4 @@
-# HCCWorkshops
-Tutorials for HCC workshops
+# HCC job examples
 
 This repository contains scripts, data and submit files for running many popular applications on the Holland Computing Center clusters.
 
@@ -8,26 +7,8 @@ Applications included:
  - MATLAB
  - python
  - R - includes advanced examples
-
-Created by: Natasha Pavlovikj and Carrie Brown
-
-
-
-BLAST metrics:
-Nucleotide: 674 KB, 3 seconds
-
-Protein: 676 KB, 7 seconds
-
-Blast single-threaded examples:
-blast_nt_single.submit - nucleotide
-
-Blast multi-threaded examples:
-blast_aa_multi.submit - protein
-blast_nt_multi.submit - nucleotide
-
-Data:
-Query = yeast.nt.fasta
-Query = yeast.aa.fasta
-Database = $BLAST/nt.00.*
-
-blast/ has examples with other query and db files
+ - mathematica
+ - gaussian
+ - JupyterNotebook including python and R scripts
+ 
+ For assistance or support about these examples or any HCC resources, please contact us at hcc-support@unl.edu
