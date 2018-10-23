@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=10240
+#SBATCH --mem-per-cpu=1024
 #SBATCH --job-name=invertRandArray
 #SBATCH --error=parallel.%J.err
 #SBATCH --output=parallel.%J.out
