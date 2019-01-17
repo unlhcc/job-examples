@@ -6,7 +6,6 @@
 #SBATCH --job-name=invertRandArray
 #SBATCH --error=parallel.%J.err
 #SBATCH --output=parallel.%J.out
-#SBATCH --workdir=/work/swanson/cathrine98/job-examples/matlab
 
 module load matlab/r2014b
 
