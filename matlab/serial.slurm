@@ -2,10 +2,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=1024
+#SBATCH --mem-per-cpu=10GB
 #SBATCH --job-name=invertRand
-#SBATCH --error=serial.err
-#SBATCH --output=serial.out
+#SBATCH --error=serial.%J.err
+#SBATCH --output=serial.%J.out
 
 module load matlab/r2014b
 
