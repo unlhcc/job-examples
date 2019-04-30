@@ -9,6 +9,12 @@
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 
+if [[ "${SHELL}" =~ "tcsh" ]]
+then
+  . /util/opt/lmod/lmod/init/profile
+  module use /util/opt/hcc-modules/Common
+fi
+
 module load abaqus
 source hcc_abaqus
 
