@@ -10,5 +10,6 @@ Applications included:
  - mathematica
  - gaussian
  - JupyterNotebook including python and R scripts
+ - GAMESS
  
  For assistance or support about these examples or any HCC resources, please contact us at hcc-support@unl.edu
