@@ -4,7 +4,6 @@
 #SBATCH --mem-per-cpu=2048
 #SBATCH --time=2:00:00
 #SBATCH --partition=batch
-#SBATCH -p devel
 #SBATCH --error=TestJob.stderr
 #SBATCH --output=TestJob.stdout
 
