@@ -9,4 +9,4 @@
 
 module load sas/9.4
 
-sas helloworld.sas
+sas t-test.sas
