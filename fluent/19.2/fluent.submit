@@ -7,4 +7,4 @@
 #SBATCH --output=job.%J.out
 
 module load ansys/19.2
-fluent 2d -t$SLURM_NTASKS -g -i in.file
+fluent 2d -t$SLURM_NTASKS -g -affinity=off -i in.file
