@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=5
 #SBATCH --mem-per-cpu=1024
