@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --mem=5gb
 #SBATCH --time=00:10:00

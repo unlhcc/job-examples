@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #SBATCH -J g09
 #SBATCH --nodes=1 --ntasks-per-node=4
 #SBATCH --mem-per-cpu=2000
