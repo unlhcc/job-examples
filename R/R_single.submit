@@ -6,6 +6,6 @@
 #SBATCH --error=R_normalize.%J.err
 #SBATCH --output=R_normalize.%J.out
 
-module load R/3.3
+module load R
 
-R CMD BATCH normalize.R
+Rscript normalize.R

@@ -7,4 +7,4 @@
 #SBATCH --output=R_analysis.%J.out
 
 module load R/3.3
-R CMD BATCH R_analysis.R
+Rscript R_analysis.R
