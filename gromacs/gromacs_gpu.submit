@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --time=00:30:00
+#SBATCH --mem-per-cpu=4096
+#SBATCH --ntasks-per-node=1
+#SBATCH --job-name=gromacs_gpu
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --error=gromacs_gpu.stderr
+#SBATCH --output=gromacs_gpu.stdout
+
+module load compiler/gcc/7.1 gromacs-gpu/2020.1
+
+gmx mdrun -nt 1 -nb gpu -pme gpu -bonded gpu
