@@ -9,10 +9,10 @@
 
 module load blast/2.10
 
-cp yeast.aa /tmp
-cp yeast.aa.fasta /tmp
+cp yeast.aa /scratch
+cp yeast.aa.fasta /scratch
 
-makeblastdb -in /tmp/yeast.aa -dbtype prot -out /tmp/yeast.aa.db
+makeblastdb -in /scratch/yeast.aa -dbtype prot -out /scratch/yeast.aa.db
 
-blastp -db /tmp/yeast.aa.db -query /tmp/yeast.aa.fasta -out /tmp/blast_aa_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
-cp /tmp/blast_aa_multi.alignments .
+blastp -db /scratch/yeast.aa.db -query /scratch/yeast.aa.fasta -out /scratch/blast_aa_multi.alignments -num_threads $SLURM_NTASKS_PER_NODE
+cp /scratch/blast_aa_multi.alignments .
