@@ -7,7 +7,7 @@
 #SBATCH --error=blast.nt.multi.%J.err
 #SBATCH --output=blast.nt.multi.%J.out
 
-module load blast/2.4
+module load blast/2.10
 module load biodata/1.0
 
 cp $BLAST/nt.00.* /scratch
