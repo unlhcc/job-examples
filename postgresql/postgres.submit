@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --time=168:00:00
+#SBATCH --mem=8gb
+#SBATCH --job-name=postgres_server
+#SBATCH --error=postgres_server.err
+#SBATCH --output=postgres_server.out
+#SBATCH --licenses=common
+#SBATCH --dependency=singleton
+#SBATCH --signal=B:SIGINT@60
+
+export POSTGRES_HOME=$COMMON/postgres
+export POSTGRES_PASSWORD_FILE=$POSTGRES_HOME/config/postgres-password
+export POSTGRES_USER=$USER
+export POSTGRES_DB=mydb
+export PGDATA=$POSTGRES_HOME/db/data
+export POSTGRES_HOST_AUTH_METHOD=md5
+export POSTGRES_INITDB_ARGS="--data-checksums"
+export POSTGRES_PORT=$(shuf -i 2000-65000 -n 1)
+
+echo "Postgres server running on $(hostname) on port $POSTGRES_PORT"
+echo "This job started at $(date +%Y-%m-%dT%T)"
+echo "This job will end at $(squeue --noheader -j $SLURM_JOBID -o %e) (in $(squeue --noheader -j $SLURM_JOBID -o %L))"
+module load singularity
+exec singularity run -B $POSTGRES_HOME/db:/var/lib/postgresql -B $POSTGRES_HOME/run:/var/run/postgresql docker://postgres:11 -c "port=$POSTGRES_PORT"
