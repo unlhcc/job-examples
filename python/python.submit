@@ -7,6 +7,6 @@
 #SBATCH --error=python_example.%J.err
 #SBATCH --output=python_example.%J.out
 
-module load python/3.5
+module load python/3.8
 
 python helloworld.py
