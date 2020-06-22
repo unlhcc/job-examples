@@ -6,5 +6,5 @@
 #SBATCH --error=R_analysis.%J.err
 #SBATCH --output=R_analysis.%J.out
 
-module load R/3.3
+module load R
 Rscript R_analysis.R
