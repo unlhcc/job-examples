@@ -7,7 +7,7 @@
 #SBATCH --error=parallel.%J.err
 #SBATCH --output=parallel.%J.out
 
-module load matlab/r2014b
+module load matlab/r2020a
 
 mkdir -p /tmp/$SLURM_JOB_ID
 matlab -nodisplay -r "invertRand('10^4'), quit"

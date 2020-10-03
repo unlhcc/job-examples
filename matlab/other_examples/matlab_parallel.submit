@@ -7,7 +7,7 @@
 #SBATCH --error=matlab_parallel.%J.err
 #SBATCH --output=matlab_parallel.%J.out
 
-module load matlab/r2014b
+module load matlab/r2020a
 
 mkdir -p /tmp/$SLURM_JOB_ID
 matlab -nodisplay -r "parallel_main, quit"

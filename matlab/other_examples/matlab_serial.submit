@@ -6,6 +6,6 @@
 #SBATCH --error=matlab_serial.%J.err
 #SBATCH --output=matlab_serial.%J.out
 
-module load matlab/r2014b
+module load matlab/r2020a
 
 matlab -nodisplay -r "serial_main, quit"
