@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=vasp_example
+#SBATCH --ntasks=8
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=00:15:00
+#SBATCH --error=vasp_job.%J.err
+#SBATCH --output=vasp_job.%J.out
+
+module load compiler/intel/19 openmpi/4.0 vasp/6.2
+mpirun vasp_std

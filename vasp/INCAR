@@ -1,0 +1,8 @@
+ PREC = Normal    ! standard precision 
+ ENMAX = 400      ! cutoff should be set manually
+ ISMEAR = 0 ; SIGMA = 0.1
+ IBRION = 1       ! use DIIS algorithm to converge
+ NFREE = 2        ! 2 independent degrees of freedom
+ NSW = 10         ! 10 ionic steps
+ EDIFFG = -0.02   ! forces smaller 0.02 A/eV
+ NCORE = 2
