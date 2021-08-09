@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --ntasks=4
+#SBATCH --time=10:00:00
+#SBATCH --mem-per-cpu=4gb
+#SBATCH --error=fluent.%J.err
+#SBATCH --output=fluent.%J.out
+
+rm -f *.trn *.hosts cleanup*
+
+module load ansys/2021
+source hcc_ansys
+
+fluent 3ddp -t${SLURM_NTASKS} -i in.file -cnf=${FL_SCHEDULER_HOST_FILE} -g

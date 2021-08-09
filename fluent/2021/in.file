@@ -1,0 +1,8 @@
+file/read-case inlet.cas
+file/read-data inlet.dat
+solve/initialize/initialize-flow
+solve/iterate 5000
+file/write-case inlet-result.cas
+file/confirm-overwrite yes
+exit
+yes
