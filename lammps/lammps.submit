@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=lammps_example
+#SBATCH --ntasks=4
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=00:15:00
+#SBATCH --error=lammps_job.%J.err
+#SBATCH --output=lammps_job.%J.out
+
+module load compiler/intel/16 openmpi/3.1 lammps/07Aug2019
+mpirun lmp_icc_openmpi < in.atm
