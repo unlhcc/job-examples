@@ -8,7 +8,7 @@
 #SBATCH --output=TestJob.%J.stdout
 
 module load compiler/intel/19 openmpi/2.0
-module load gamess/20190930R2
+module load gamess/20210930R2
 
 nodelist > ./PBS_NODEFILE
 echo $SLURM_JOB_ID > ./jobid
