@@ -1,17 +1,20 @@
 #!/bin/bash
-#SBATCH --job-name=AlphaFold_example
+#SBATCH --job-name=AlphaFold_GPU_example
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=10gb
-#SBATCH --time=01:00:00
-#SBATCH --error=AlphaFold.%J.err
-#SBATCH --output=AlphaFold.%J.out
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=50gb
+#SBATCH --time=168:00:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --error=AlphaFold_GPU.%J.err
+#SBATCH --output=AlphaFold_GPU.%J.out
 
+module purge
 module load singularity
 
 # the needed databases are downloaded in /work/HCC/BCRF/app_specific/alphafold/2.0.0/
 singularity run -B /work/HCC/BCRF/app_specific/alphafold/2.0.0/:/data -B .:/etc \
-    --pwd /app/alphafold docker://unlhcc/alphafold \
+    --pwd /app/alphafold docker://unlhcc/alphafold:2.0.0 \
     # --fasta_paths should be set to the absolute path to the input fasta file
     --fasta_paths=input.fasta \
     # --output_dir should be set to the absolute path to the output directory
