@@ -31,5 +31,5 @@ singularity run -B /work/HCC/BCRF/app_specific/alphafold/2.2.0/:/data -B .:/etc 
     --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
     --template_mmcif_dir=/data/pdb_mmcif/mmcif_files \
     --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
-    --use_gpu_relax=False \
+    --use_gpu_relax=True \
     --db_preset=full_dbs
