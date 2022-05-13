@@ -1,11 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=AlphaFold_CPU_example
+#SBATCH --job-name=AlphaFold_GPU_example
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=50gb
 #SBATCH --time=168:00:00
-#SBATCH --error=AlphaFold_CPU.%J.err
-#SBATCH --output=AlphaFold_CPU.%J.out
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --error=AlphaFold_GPU.%J.err
+#SBATCH --output=AlphaFold_GPU.%J.out
 
 module purge
 module load singularity
@@ -29,5 +31,5 @@ singularity run -B /work/HCC/BCRF/app_specific/alphafold/2.2.0/:/data -B .:/etc 
     --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
     --template_mmcif_dir=/data/pdb_mmcif/mmcif_files \
     --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
-    --use_gpu_relax=False \
+    --use_gpu_relax=True \
     --db_preset=full_dbs
