@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=guppy-cpu
+#SBATCH --output=guppy-cpu_%j.out
+#SBATCH --error=guppy-cpu_%j.err
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=20GB
+
+module purge
+module load guppy/6.2
+
+# replace the values for input_path, save_path, flowcell, and kit with your real data
+guppy_basecaller \
+	--input_path /path/to/fast5_files \
+	--save_path /path/to/output_dir \
+	--flowcell flowcell_id \
+	--kit kit_id \
+        --num_callers ${SLURM_NTASKS_PER_NODE}
