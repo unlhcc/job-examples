@@ -10,7 +10,7 @@
 #SBATCH --mem=20GB
 
 module purge
-module load guppy/6.2
+module load guppy-gpu/6.2
 
 # replace the values for input_path, save_path, flowcell, and kit with your real data
 guppy_basecaller \
