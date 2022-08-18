@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --job-name=cellranger
+#SBATCH --output=cellranger.%j.out
+#SBATCH --error=cellranger.%j.err
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=20GB
+
+module purge
+module load singularity
+
+# replace the values for run and csv with the absolute location of your input data
+# example input data can be downloaded https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_fq
+singularity exec docker://unlhcc/cellranger:6.1.2 cellranger mkfastq --id=cellranger_run \
+  --run=input_dir \
+  --csv=input.csv \
+  --output-dir=cellranger_output
