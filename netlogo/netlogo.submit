@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --job-name=netlogo-headless
+#SBATCH --output=netlogo_%J.out
+#SBATCH --error=netlogo_%J.err
+#SBATCH --time=00:05:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem-per-cpu=1g
+
+module purge
+module load netlogo/6.2
+
+netlogo-headless.sh \
+	--threads ${SLURM_NTASKS_PER_NODE} \
+	--model Wolf_Sheep_Simple_5.nlogo \
+	--experiment "Wolf Sheep Simple model analysis" \
+	--table -
