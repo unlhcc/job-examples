@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --time=00:10:00
+#SBATCH --mem=4G 
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --job-name=mumax3_example
+#SBATCH --error=mumaxjob.%J.err
+#SBATCH --output=mumaxjob.%J.out
+
+
+module load mumax3/3.10
+
+mumax3 mumag.mx3
+
