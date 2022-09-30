@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --job-name=wrf_real_example
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=8gb
+#SBATCH --time=00:15:00
+#SBATCH --error=wrf_real_job.%J.err
+#SBATCH --output=wrf_real_job.%J.out
+
+module purge
+module load compiler/pgi/20 openmpi/4.0 WRF/v4
+mpirun ./real.exe
