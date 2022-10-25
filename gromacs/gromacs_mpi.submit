@@ -1,11 +1,12 @@
 #!/bin/bash
 #SBATCH --time=01:00:00
-#SBATCH --mem-per-cpu=4096
-#SBATCH --ntasks-per-node=1
+#SBATCH --mem-per-cpu=1024
+#SBATCH --ntasks=4
 #SBATCH --job-name=gromacs_mpi
 #SBATCH --error=gromacs_mpi.stderr
 #SBATCH --output=gromacs_mpi.stdout
 
-module load compiler/gcc/9.1 openmpi/4.0 gromacs/2020.1
+module purge
+module load compiler/gcc/10 openmpi/4.1 gromacs/2022.3
 
-mpirun mdrun
+mpirun gmx mdrun

@@ -8,6 +8,7 @@
 #SBATCH --error=gromacs_gpu.stderr
 #SBATCH --output=gromacs_gpu.stdout
 
-module load compiler/gcc/7.1 gromacs-gpu/2020.1
+module purge
+module load compiler/gcc/10 gromacs-gpu/2022.3
 
 gmx mdrun -nt 1 -nb gpu -pme gpu -bonded gpu
