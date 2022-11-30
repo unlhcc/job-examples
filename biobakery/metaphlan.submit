@@ -1,0 +1,30 @@
+#!/bin/bash
+#SBATCH --mem=20gb
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --job-name=metaphlan
+#SBATCH --error=metaphlan.%J.err
+#SBATCH --output=metaphlan.%J.out
+#SBATCH --partition=batch
+
+module purge
+module load metaphlan/4.0
+
+# The indexed CHOCOPhlAnSGB database is already downloaded on our clusters
+# This database can be accessed with the variable $METAPHLAN_BOWTIE2_DB once the MetaPhlAn module is loaded
+
+# Run MetaPhlAn
+# Here, input paired-end reads are the output reads generated with KneadData
+# Please modify these paths according to your data location
+metaphlan ./kneaddata_output_demo1/demo1.R1_kneaddata_paired_1.fastq,./kneaddata_output_demo1/demo1.R1_kneaddata_paired_2.fastq \
+    --input_type fastq --nproc 8 \
+    --bowtie2out demo1_metagenome_bowtie2.bz2 \
+    -s demo1_metagenome_sam.bz2 \
+    -o demo1_profiled_metagenome_marker_counts.txt
+
+# Zipped *_sam.bz2 files can be unzipped with:
+# bzip2 -d demo1_metagenome_sam.bz2
+
+# If needed, output files from multiple samples can be merged with:
+# merge_metaphlan_tables.py *_profiled_metagenome_marker_counts.txt > all_metaphlan_output.txt
