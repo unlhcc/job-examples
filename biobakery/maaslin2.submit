@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --mem=20gb
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --job-name=maaslin2
+#SBATCH --error=maaslin2.%J.err
+#SBATCH --output=maaslin2.%J.out
+#SBATCH --partition=batch
+
+module purge
+module load maaslin2/0.3
+
+# Running the demo example from https://github.com/biobakery/Maaslin2#run-a-demo
+# MaAsLin2 uses metadata and output from HUMAnN as input
+# If needed, please normalize your HUMAnN output using humann_renorm_table 
+
+# Input .tsv files are in ./data in these examples
+# Please modify these paths according to your data location
+# Please modify the arguments, as well as --fixed_effects and --random_effects, based on your data
+Maaslin2.R --fixed_effects="diagnosis,dysbiosis" \
+    --random_effects="site,subject" \
+    --standardize=FALSE \
+   ./data/HMP2_taxonomy.tsv ./data/HMP2_metadata.tsv test_maaslin2_output
