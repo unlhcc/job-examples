@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=espresso_gpu_example
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=00:15:00
+#SBATCH --partition=gpu
+#SBATCH --ntasks-per-gpu=2
+#SBATCH --gres=gpu:2
+#SBATCH --error=espresso_gpu_job.%J.err
+#SBATCH --output=espresso_gpu_job.%J.out
+
+# --gres=gpu:X
+# where X is the number of GPUs you want
+
+module purge
+module load compiler/nvhpc/21.9 openmpi/3.1 espresso-gpu/7.1
+
+# To avoid oversubscribing each GPU
+export OMP_NUM_THREADS=1
+
+mpirun pw.x -input si.scf.david.in
