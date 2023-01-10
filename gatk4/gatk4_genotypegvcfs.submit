@@ -29,4 +29,4 @@ gatk --java-options '-Djava.io.tmpdir=/scratch/$SLURM_JOBID -Xms2G -Xmx40G -XX:P
 
 # The /scratch space is available only while the job is running,
 # so the generated output needs to be copied back to /work or /common.
-cp -r /scratch/$SLURM_JOBID/output.vcf $WORK
+cp /scratch/$SLURM_JOBID/output.vcf $WORK
