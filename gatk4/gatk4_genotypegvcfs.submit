@@ -19,6 +19,7 @@ cp -r chr1.database /scratch/$SLURM_JOBID/output/
 
 # Please modify the output name, as well as the input files and intervals according to your need.
 # If more memory is needed, please increase --mem and -Xmx respectively.
+# The -Xmx value should be less than the total amount of memory set with --mem by at least a few GBs.
 # Based on https://hpc.nih.gov/training/gatk_tutorial/genotype-gvcfs.html#benchmarks-2,
 # GenotypeGVCFs should be run with 2 threads.
 gatk --java-options '-Djava.io.tmpdir=/scratch/$SLURM_JOBID -Xms2G -Xmx40G -XX:ParallelGCThreads=2' \
