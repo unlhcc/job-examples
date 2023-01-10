@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH --mem=50gb
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --job-name=gatk4_genotypegvcfs
+#SBATCH --error=gatk4_genotypegvcfs.%J.err
+#SBATCH --output=gatk4_genotypegvcfs.%J.out
+#SBATCH --partition=batch
+
+module purge
+module load gatk4/4.3
+
+# Copy output from GenomicsDBImport and reference file to /scratch
+mkdir -p /scratch/$SLURM_JOBID/tmp
+mkdir -p /scratch/$SLURM_JOBID/output
+cp reference.fa /scratch/$SLURM_JOBID/
+cp -r chr1.database /scratch/$SLURM_JOBID/output/
+
+# Please modify the output name, as well as the input files and intervals according to your need.
+# If more memory is needed, please increase --mem and -Xmx respectively.
+# Based on https://hpc.nih.gov/training/gatk_tutorial/genotype-gvcfs.html#benchmarks-2,
+# GenotypeGVCFs should be run with 2 threads.
+gatk --java-options '-Djava.io.tmpdir=/scratch/$SLURM_JOBID -Xms2G -Xmx40G -XX:ParallelGCThreads=2' \
+    GenotypeGVCFs -R /scratch/$SLURM_JOBID/reference.fa \
+    -V gendb:///scratch/$SLURM_JOBID/output/chr1.database \
+    -O /scratch/$SLURM_JOBID/output.vcf \
+    --tmp-dir /scratch/$SLURM_JOBID/tmp
+
+# The /scratch space is available only while the job is running,
+# so the generated output needs to be copied back to /work or /common.
+cp -r /scratch/$SLURM_JOBID/output.vcf $WORK
