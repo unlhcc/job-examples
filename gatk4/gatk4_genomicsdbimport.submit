@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH --mem=50gb
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --job-name=gatk4_genomicsdbimport
+#SBATCH --error=gatk4_genomicsdbimport.%J.err
+#SBATCH --output=gatk4_genomicsdbimport.%J.out
+#SBATCH --partition=batch
+
+module purge
+module load gatk4/4.3
+
+export TILEDB_DISABLE_FILE_LOCKING=1
+
+# GenomicsDBImport opens and closes many files and that can affect the performance of 
+# /work and /common filesystems for all researchers on our clusters.
+# Therefore, we recommend using the /scratch space to run GenomicsDBImport.
+mkdir -p /scratch/$SLURM_JOBID/tmp
+mkdir -p /scratch/$SLURM_JOBID/output
+
+# Please modify the output name, as well as the input files and intervals according to your need.
+# If more memory is needed, please increase --mem and -Xmx respectively.
+# Based on https://hpc.nih.gov/training/gatk_tutorial/genomics-db-import.html#optimized-script-3,
+# GenomicsDBImport should not be run with more than 2 threads.
+gatk --java-options '-Djava.io.tmpdir=/scratch/$SLURM_JOBID -Xms2G -Xmx40G -XX:ParallelGCThreads=2' \
+    GenomicsDBImport --genomicsdb-workspace-path /scratch/$SLURM_JOBID/output/chr1.database \
+    --genomicsdb-shared-posixfs-optimizations true \
+    --tmp-dir /scratch/$SLURM_JOBID/tmp \
+    -V sample1.vcf -V sample2.vcf -V sample3.vcf \
+    --intervals chr1:1000-10000
+
+# The /scratch space is available only while the job is running,
+# so the generated output needs to be copied back to /work or /common.
+cp -r /scratch/$SLURM_JOBID/output/chr1.database/ $WORK
