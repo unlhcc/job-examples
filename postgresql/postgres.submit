@@ -20,5 +20,5 @@ export POSTGRES_PORT=$(shuf -i 2000-65000 -n 1)
 echo "Postgres server running on $(hostname) on port $POSTGRES_PORT"
 echo "This job started at $(date +%Y-%m-%dT%T)"
 echo "This job will end at $(squeue --noheader -j $SLURM_JOBID -o %e) (in $(squeue --noheader -j $SLURM_JOBID -o %L))"
-module load singularity
-exec singularity run -B $POSTGRES_HOME/db:/var/lib/postgresql -B $POSTGRES_HOME/run:/var/run/postgresql docker://postgres:11 -c "port=$POSTGRES_PORT"
+module load apptainer
+exec apptainer run -B $POSTGRES_HOME/db:/var/lib/postgresql -B $POSTGRES_HOME/run:/var/run/postgresql docker://postgres:11 -c "port=$POSTGRES_PORT"

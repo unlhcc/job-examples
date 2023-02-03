@@ -8,11 +8,11 @@
 #SBATCH --mem=20GB
 
 module purge
-module load singularity
+module load apptainer
 
 # replace the values for run and csv with the absolute location of your input data
 # example input data can be downloaded https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_fq
-singularity exec docker://unlhcc/cellranger:6.1.2 cellranger mkfastq --id=cellranger_run \
+apptainer exec docker://unlhcc/cellranger:6.1.2 cellranger mkfastq --id=cellranger_run \
   --run=input_dir \
   --csv=input.csv \
   --output-dir=cellranger_output

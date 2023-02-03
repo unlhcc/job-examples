@@ -10,10 +10,10 @@
 #SBATCH --output=AlphaFold_GPU.%J.out
 
 module purge
-module load singularity
+module load apptainer
 
 # the needed databases are downloaded in /work/HCC/BCRF/app_specific/alphafold/2.0.0/
-singularity run -B /work/HCC/BCRF/app_specific/alphafold/2.0.0/:/data -B .:/etc \
+apptainer run -B /work/HCC/BCRF/app_specific/alphafold/2.0.0/:/data -B .:/etc \
     --pwd /app/alphafold docker://unlhcc/alphafold:2.0.0 \
     # --fasta_paths should be set to the absolute path to the input fasta file
     --fasta_paths=input.fasta \
