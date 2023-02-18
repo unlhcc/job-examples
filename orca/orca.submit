@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=orca_example
+#SBATCH --ntasks=4
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=00:15:00
+#SBATCH --error=orca_job.%J.err
+#SBATCH --output=orca_job.%J.out
+
+module load orca/5.0
+`which orca` test.inp
