@@ -1,0 +1,17 @@
+#!/bin/sh
+#SBATCH --job-name=openmx
+#SBATCH --ntasks=4
+#SBATCH --mem-per-cpu=2000
+#SBATCH --time=01:00:00
+#SBATCH --partition=batch
+#SBATCH --error=TestJob.%J.stderr
+#SBATCH --output=TestJob.%J.stdout
+
+module purge
+module load compiler/intel/20 openmpi/4.0 openmx/3.9
+
+export OMP_NUM_THREADS=1
+nodelist >  ./machines.LINUX
+echo $SLURM_JOB_ID > ./jobid
+
+mpiexec openmx C60.dat > C60.log
