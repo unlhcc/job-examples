@@ -9,6 +9,6 @@
 #SBATCH --output=gromacs_gpu.%J.stdout
 
 module purge
-module load compiler/gcc/10 openmpi/4.1 gromacs-gpu/2023
+module load compiler/gcc/10 gromacs-gpu/2023
 
 gmx mdrun -nt 1 -nb gpu -pme gpu -bonded gpu
