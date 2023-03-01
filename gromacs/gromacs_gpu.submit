@@ -5,10 +5,10 @@
 #SBATCH --job-name=gromacs_gpu
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
-#SBATCH --error=gromacs_gpu.stderr
-#SBATCH --output=gromacs_gpu.stdout
+#SBATCH --error=gromacs_gpu.%J.stderr
+#SBATCH --output=gromacs_gpu.%J.stdout
 
 module purge
-module load compiler/gcc/10 gromacs-gpu/2022.3
+module load compiler/gcc/10 gromacs-gpu/2023
 
 gmx mdrun -nt 1 -nb gpu -pme gpu -bonded gpu
