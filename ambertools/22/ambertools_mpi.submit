@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --job-name=AmberTools
+#SBATCH --ntasks=16
+#SBATCH --mem=5GB
+#SBATCH --time=01:00:00
+#SBATCH --error=ambertools_mpi_job.%J.err
+#SBATCH --output=ambertools_mpi_job.%J.out
+
+module purge
+module load compiler/gcc/10 openmpi/4.1 ambertools/22
+
+mpirun sander.MPI -O -i gbin -c trpcge.crds -p TC5b.top -o out
