@@ -1,0 +1,30 @@
+&files
+  -p HID.top
+  -c HID.crd
+  -o cfsamp_I.out
+&end
+
+&configs
+
+  % Backbone phi and psi sampling
+  GridSample    :2@C  :3@N  :3@CA :3@C    { -180.0 180.0 }  fbhw 10.0  Krst 64.0,
+  GridSample    :3@N  :3@CA :3@C  :4@N    { -180.0 180.0 }  fbhw 10.0  Krst 64.0,
+
+  % Make sure that the backbone does not form hydrogen bonds with itself
+  combine 1 2,
+  count = 64,
+  verbose 1,
+  maxcyc = 5000,
+  strainlim = 20.0,
+  bstrain = 10.0,
+  astrain = 10.0,
+
+  % Reshuffling
+  nshuffle = 2,
+  shuffle    bootstrap,
+
+  % Output controls
+  outbase  'Conf', 'Conf',
+  write    'cdf', 'pdb',
+  outsuff  'cdf', 'pdb',
+&end

@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=AmberTools
+#SBATCH --ntasks=1
+#SBATCH --mem=5GB
+#SBATCH --time=01:00:00
+#SBATCH --error=ambertools_gpu_job.%J.err
+#SBATCH --output=ambertools_gpu_job.%J.out
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+
+module purge
+module load compiler/gcc/10 openmpi/4.1 ambertools/22 cuda/11.4
+
+mdgx.cuda -O -i cfsamp_I.in
