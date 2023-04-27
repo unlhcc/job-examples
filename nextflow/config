@@ -1,0 +1,9 @@
+process {
+    executor = 'slurm'
+    cpus = 2
+    memory = '10 GB'
+    time = '30 min'
+    queueSize = 2
+    submitRateLimit = '10 min'
+    queue = 'batch'
+}
