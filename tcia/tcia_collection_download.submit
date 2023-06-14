@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --job-name=download
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=10:00:00
+#SBATCH --mem=50gb
+
+module purge
+module load tciaclient/py38/0.0.3
+
+python tcia_collection_download.py
