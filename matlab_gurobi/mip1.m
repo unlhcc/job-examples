@@ -1,6 +1,6 @@
 function mip1()
 
-% This script is adapter from https://www.gurobi.com/documentation/current/quickstart_mac/matlab_example.html
+% This script is adapted from https://www.gurobi.com/documentation/current/quickstart_mac/matlab_example.html
 %
 % Copyright 2023, Gurobi Optimization, LLC
 % This example formulates and solves the following simple MIP model:
