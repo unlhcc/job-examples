@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=ashs
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=168:00:00
+#SBATCH --mem=20gb
+#SBATCH --partition=batch
+
+module purge
+module load ashs/2.0
+
+# the test dataset for sub07 is used from 
+# https://github.com/pyushkevich/ashs/tree/master/testing/atlas_system_test/images
+INPUT_DATA=../data
+
+# ASHS_ATLAS_UPENN_PMC stores the pre-downloaded Penn Memory Center 3T ASHS 1.0 Atlas
+# already vailable as part of the biodata module
+# -S: Use SLURM instead of SGE, LSF or GNU parallel, available only in ashs/2.0
+# -q: Pass in additional options to SGE/SLURM/LSF/GNU Parallel
+# -t: Specify number of parallel threads the greedy runs
+ashs_main.sh -I sub07 -S -q "--mem=20gb --time=03:00:00 --ntasks-per-node=8" -t 8 -a $ASHS_ATLAS_UPENN_PMC \
+    -g $INPUT_DATA/sub07_mprage.nii.gz -f $INPUT_DATA/sub07_tse.nii.gz -w sub07_output_slurm_parallel
