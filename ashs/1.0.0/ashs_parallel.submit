@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=ashs
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=168:00:00
+#SBATCH --mem=20gb
+#SBATCH --partition=batch
+
+module purge
+module load ashs/1.0
+
+# the test dataset for sub07 is used from 
+# https://github.com/pyushkevich/ashs/tree/master/testing/atlas_system_test/images
+INPUT_DATA=${PWD}/data
+
+# ASHS_ATLAS_UPENN_PMC stores the pre-downloaded Penn Memory Center 3T ASHS 1.0 Atlas
+# already vailable as part of the biodata module
+# -P: Use GNU parallel to run on multiple cores on the local machine 
+ashs_main.sh -I sub07 -P -a $ASHS_ATLAS_UPENN_PMC \
+    -g $INPUT_DATA/sub07_mprage.nii.gz -f $INPUT_DATA/sub07_tse.nii.gz -w sub07_output_parallel
+
+# the runtime of this job was ~12 minutes
