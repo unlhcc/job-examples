@@ -1,0 +1,92 @@
+
+DEFINE_MOLECULES{
+
+  Ca {DIFFUSION_CONSTANT_3D=D_Ca}
+  
+  Ca_HH.C0 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HH.C1 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HH.C2 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HH.O {DIFFUSION_CONSTANT_2D=0}
+
+
+/*	Buffers	*/
+
+  fix.U {DIFFUSION_CONSTANT_3D=0}
+  fix.B {DIFFUSION_CONSTANT_3D=0}
+  ATP.U{DIFFUSION_CONSTANT_3D=D_ATP TARGET_ONLY }
+  ATP.B{DIFFUSION_CONSTANT_3D=D_ATP TARGET_ONLY }
+  EGTA.U {DIFFUSION_CONSTANT_3D=D_Ca TARGET_ONLY }
+  EGTA.B {DIFFUSION_CONSTANT_3D=D_Ca TARGET_ONLY }
+  calretinin.site.T{ DIFFUSION_CONSTANT_3D= 0.032e-6 TARGET_ONLY }
+  calretinin.site.R{ DIFFUSION_CONSTANT_3D= 0.032e-6 TARGET_ONLY }
+  calretinin.site.TRCa{ DIFFUSION_CONSTANT_3D= 0.032e-6 TARGET_ONLY }
+  calretinin.U { DIFFUSION_CONSTANT_3D= 0.032e-6 TARGET_ONLY }
+  calretinin.B { DIFFUSION_CONSTANT_3D= 0.032e-6 TARGET_ONLY }
+
+/* Sensor molecules */
+
+  release_sensor0.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.d.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.e.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.e.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.f.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.f.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.g.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.g.x6 {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor0.h.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.h.x6 {DIFFUSION_CONSTANT_3D=0}
+
+}

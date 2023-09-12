@@ -1,0 +1,124 @@
+
+
+/* HH model of channel gating */
+
+sprintf(alp2,"%s%s",data_header_str,"twoalpham.dat")
+sprintf(alp,"%s%s",data_header_str,"alpham.dat")
+sprintf(b2,"%s%s",data_header_str,"twobetam.dat")
+sprintf(b,"%s%s",data_header_str,"betam.dat")
+sprintf(b3,"%s%s",data_header_str,"3betam.dat")
+sprintf(alp3,"%s%s",data_header_str,"3alpham.dat")
+sprintf(file_kopencurrent,"%s%s",data_header_str,"kCav2.dat")
+
+DEFINE_REACTIONS {
+  Ca_HH.C0 ' ->Ca_HH.C1' [alp3]
+  Ca_HH.C1 ' ->Ca_HH.C2' [alp2]
+  Ca_HH.C2 ' ->Ca_HH.O' [alp]
+  Ca_HH.O ' ->Ca_HH.C2' [b3]
+  Ca_HH.C2 ' ->Ca_HH.C1' [b2]
+  Ca_HH.C1 ' ->Ca_HH.C0' [b]
+  Ca_HH.O ' ->Ca_HH.O' + Ca, [file_kopencurrent]:io_hh
+}
+
+/* Buffer reactions */
+
+DEFINE_REACTIONS{
+	EGTA.U+Ca->EGTA.B [EGTA_on]
+  EGTA.B->EGTA.U+Ca [EGTA_off]
+}
+
+DEFINE_REACTIONS{
+	ATP.U+Ca->ATP.B [A_K_on]
+  ATP.B->ATP.U+Ca [A_K_off]
+}
+
+DEFINE_REACTIONS {
+  fix.U + Ca ->fix.B [fix_on]
+  fix.B -> fix.U + Ca [fix_off]
+}
+
+DEFINE_REACTIONS {
+  calretinin.U+Ca-> calretinin.B[7.3e6]
+  calretinin.B-> calretinin.U+Ca[cal_s_Koff]
+}
+
+DEFINE_REACTIONS {
+  calretinin.site.T +Ca-> calretinin.site.R [cal_t_kon]
+  calretinin.site.R +Ca-> calretinin.site.TRCa [cal_r_kon]
+  calretinin.site.TRCa -> calretinin.site.R +Ca [cal_r_koff]
+  calretinin.site.R -> calretinin.site.T +Ca [cal_t_koff]
+  }
+
+/* Sensor release model */
+
+DEFINE_REACTIONS {
+    release_sensor0.a.x0 +Ca <-> release_sensor0.a.x1 [>kx01,<kx10]
+    release_sensor0.a.x1 +Ca <-> release_sensor0.a.x2 [>kx12,<kx21]
+    release_sensor0.a.x2 +Ca <-> release_sensor0.a.x3 [>kx23,<kx32]
+    release_sensor0.a.x3 +Ca <-> release_sensor0.a.x4 [>kx34,<kx43]
+    release_sensor0.a.x4 +Ca <-> release_sensor0.a.x5 [>kx45,<kx54]
+    release_sensor0.a.x5 -> release_sensor0.a.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.b.x0 +Ca <-> release_sensor0.b.x1 [>kx01,<kx10]
+    release_sensor0.b.x1 +Ca <-> release_sensor0.b.x2 [>kx12,<kx21]
+    release_sensor0.b.x2 +Ca <-> release_sensor0.b.x3 [>kx23,<kx32]
+    release_sensor0.b.x3 +Ca <-> release_sensor0.b.x4 [>kx34,<kx43]
+    release_sensor0.b.x4 +Ca <-> release_sensor0.b.x5 [>kx45,<kx54]
+    release_sensor0.b.x5 -> release_sensor0.b.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.c.x0 +Ca <-> release_sensor0.c.x1 [>kx01,<kx10]
+    release_sensor0.c.x1 +Ca <-> release_sensor0.c.x2 [>kx12,<kx21]
+    release_sensor0.c.x2 +Ca <-> release_sensor0.c.x3 [>kx23,<kx32]
+    release_sensor0.c.x3 +Ca <-> release_sensor0.c.x4 [>kx34,<kx43]
+    release_sensor0.c.x4 +Ca <-> release_sensor0.c.x5 [>kx45,<kx54]
+    release_sensor0.c.x5 -> release_sensor0.c.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.d.x0 +Ca <-> release_sensor0.d.x1 [>kx01,<kx10]
+    release_sensor0.d.x1 +Ca <-> release_sensor0.d.x2 [>kx12,<kx21]
+    release_sensor0.d.x2 +Ca <-> release_sensor0.d.x3 [>kx23,<kx32]
+    release_sensor0.d.x3 +Ca <-> release_sensor0.d.x4 [>kx34,<kx43]
+    release_sensor0.d.x4 +Ca <-> release_sensor0.d.x5 [>kx45,<kx54]
+    release_sensor0.d.x5 -> release_sensor0.d.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.e.x0 +Ca <-> release_sensor0.e.x1 [>kx01,<kx10]
+    release_sensor0.e.x1 +Ca <-> release_sensor0.e.x2 [>kx12,<kx21]
+    release_sensor0.e.x2 +Ca <-> release_sensor0.e.x3 [>kx23,<kx32]
+    release_sensor0.e.x3 +Ca <-> release_sensor0.e.x4 [>kx34,<kx43]
+    release_sensor0.e.x4 +Ca <-> release_sensor0.e.x5 [>kx45,<kx54]
+    release_sensor0.e.x5 -> release_sensor0.e.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.f.x0 +Ca <-> release_sensor0.f.x1 [>kx01,<kx10]
+    release_sensor0.f.x1 +Ca <-> release_sensor0.f.x2 [>kx12,<kx21]
+    release_sensor0.f.x2 +Ca <-> release_sensor0.f.x3 [>kx23,<kx32]
+    release_sensor0.f.x3 +Ca <-> release_sensor0.f.x4 [>kx34,<kx43]
+    release_sensor0.f.x4 +Ca <-> release_sensor0.f.x5 [>kx45,<kx54]
+    release_sensor0.f.x5 -> release_sensor0.f.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.g.x0 +Ca <-> release_sensor0.g.x1 [>kx01,<kx10]
+    release_sensor0.g.x1 +Ca <-> release_sensor0.g.x2 [>kx12,<kx21]
+    release_sensor0.g.x2 +Ca <-> release_sensor0.g.x3 [>kx23,<kx32]
+    release_sensor0.g.x3 +Ca <-> release_sensor0.g.x4 [>kx34,<kx43]
+    release_sensor0.g.x4 +Ca <-> release_sensor0.g.x5 [>kx45,<kx54]
+    release_sensor0.g.x5 -> release_sensor0.g.x6 [kx56]
+}
+
+DEFINE_REACTIONS {
+    release_sensor0.h.x0 +Ca <-> release_sensor0.h.x1 [>kx01,<kx10]
+    release_sensor0.h.x1 +Ca <-> release_sensor0.h.x2 [>kx12,<kx21]
+    release_sensor0.h.x2 +Ca <-> release_sensor0.h.x3 [>kx23,<kx32]
+    release_sensor0.h.x3 +Ca <-> release_sensor0.h.x4 [>kx34,<kx43]
+    release_sensor0.h.x4 +Ca <-> release_sensor0.h.x5 [>kx45,<kx54]
+    release_sensor0.h.x5 -> release_sensor0.h.x6 [kx56]
+}

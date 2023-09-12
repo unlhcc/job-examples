@@ -1,0 +1,55 @@
+/* --- Sampling Box ---- */
+
+DEFINE_SURFACE_CLASSES {
+  transparent_class{
+  TRANSPARENT=Ca
+  }
+}
+
+
+bouton OBJECT {
+ bouton0 POLYGON_LIST {
+    VERTEX_LIST {
+      [0,0,0]
+      [0,bouton_width,0]
+      [0,bouton_width,bouton_height]
+      [0,0,bouton_height]
+      [bouton_width,0,bouton_height]
+      [bouton_width,0,0]
+      [bouton_width,bouton_width,0]
+      [bouton_width,bouton_width,bouton_height]
+      [(bouton_width+active_zone_width)/2,(bouton_width+active_zone_width)/2,0]
+      [(bouton_width+active_zone_width)/2,(bouton_width-active_zone_width)/2,0]
+      [(bouton_width-active_zone_width)/2,(bouton_width-active_zone_width)/2,0]
+      [(bouton_width-active_zone_width)/2,(bouton_width+active_zone_width)/2,0]
+}
+        ELEMENT_CONNECTIONS {
+                [0,4,3]
+                [0,5,4]
+                [5,6,7]
+                [5,7,4]
+                [4,7,3]
+                [3,7,2]
+                [0,3,2]
+                [0,2,1]
+                [1,2,7]
+                [1,7,6]
+                [6,8,1]
+                [8,11,1]
+                [1,11,0]
+                [0,11,10]
+                [0,10,5]
+                [5,10,9]
+                [6,5,9]
+                [6,9,8]
+                [8,9,10]
+                [10,11,8]
+
+  }
+
+
+  TRANSLATE=[-0.25*bouton_width,-0.25*bouton_width, fuzz]
+
+    }
+
+}

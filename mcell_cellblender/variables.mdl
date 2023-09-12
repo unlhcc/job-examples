@@ -1,0 +1,79 @@
+
+/* ------ File contains rates that do not change ------ */
+
+chckpnt_state = 1
+fuzz=1e-6
+gap_size=0.02
+active_zone_width=0.2
+bouton_width=0.6
+bouton_height=1.2
+dt=5e-9
+it=0.4e6
+grid_density = 20000
+freq=100*dt
+
+/*Diffusion rates */
+
+D_ATP=2e-6
+Cabase=50e-9
+D_Ca= 2.2e-6
+
+/* buffering parameters */
+
+fix_concentration=4e-3
+
+EGTA_concentration=0
+
+ATP_concentration=2e-4
+
+fix_on=100e6 /*100 mM-1 ms-1*/
+fix_off=10e3 /* 10 ms-1 */
+
+EGTA_on=10.5e6
+EGTA_off=0.735
+
+A_K_on=500e6
+A_K_off=100e3
+
+cal_s_Kon=7.3e6
+cal_s_Koff=252
+
+cal_t_kon=3.6e6
+cal_t_koff=53
+cal_r_kon=3.1e8
+cal_r_koff=40
+
+calretinin_s_concentration =160e-6
+calretinin_t_concentration =320e-6
+bound_calretinin= cal_s_Kon*(Cabase)/( cal_s_Koff+ cal_s_Kon*(Cabase))
+unbound_calretinin=1- bound_calretinin
+bound_calretinin_t= cal_t_kon*(Cabase)/( cal_t_koff+ cal_t_kon*(Cabase))
+unbound_calretinin_t=1- bound_calretinin_t
+bound_calretinin_trc= bound_calretinin_t* cal_r_kon*(Cabase)/( cal_r_koff+ cal_r_kon*(Cabase))
+
+fix_bound_fraction=fix_on*(Cabase)/(fix_off+ fix_on*(Cabase))
+fix_unbound_fraction=1- fix_bound_fraction
+
+EGTA_bound_fraction= EGTA_on*(Cabase)/( EGTA_off + EGTA_on*(Cabase))
+EGTA_unbound_fraction=1-EGTA_bound_fraction
+
+ATP_bound_fraction= A_K_on*(Cabase)/( A_K_off + A_K_on * (Cabase))
+ATP_unbound_fraction=1-ATP_bound_fraction
+
+
+/* rates for the sensor model */
+
+b=0.25
+
+kx01=5 * 1.27e8
+kx10=15700
+kx12=4  * 1.27e8
+kx21=2 * 15700 * 0.26
+kx23=3  * 1.27e8
+kx32=2 * 15700 *b *b
+kx34=2  * 1.27e8
+kx43=4 * 15700 * b * b *b
+kx45=  1.27e8
+kx54=5 * 15700 * b *b *b *b
+kx56=6000
+kx60=5
