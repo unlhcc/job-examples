@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=mcell_example
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=20gb
+#SBATCH --time=168:00:00
+#SBATCH --error=mcell.%J.err
+#SBATCH --output=mcell.%J.out
+
+module purge
+module load apptainer
+
+# this input dataset is used from
+# https://github.com/mariarv/MC_Pv_syn_diversity/tree/master/Exclusion_zone_simulations
+apptainer run docker://unlhcc/mcell_cellblender:4.0.6 mcell \
+    -checkpoint_outfile checkpoint_file.chk main_EZ50nm.mdl
