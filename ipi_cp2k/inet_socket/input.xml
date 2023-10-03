@@ -9,11 +9,12 @@
   <prng><seed> 3924</seed></prng>
   <total_steps>800000</total_steps>
   <total_time>601200</total_time>
-    <ffsocket mode='unix' name='cp2k'>
+    <ffsocket mode='inet' name='cp2k'>
          <latency>  1.00000000e-02</latency>
          <slots>4</slots>
          <timeout>  6.00000000e+02</timeout>
-         <address>localhost</address>
+	 <address>localhost</address>
+	 <port>port</port>
    </ffsocket>  
 <system>
     <initialize nbeads="1">

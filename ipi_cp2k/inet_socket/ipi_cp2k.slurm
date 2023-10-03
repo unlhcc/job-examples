@@ -1,0 +1,67 @@
+#!/bin/bash
+#SBATCH --job-name=ipi_cp2k_example
+#SBATCH --nodes=3
+#SBATCH --ntasks=20
+#SBATCH --mem-per-cpu=10GB
+#SBATCH --time=168:00:00
+#SBATCH --error=ipi_cp2k_job.%J.err
+#SBATCH --output=ipi_cp2k_job.%J.out
+
+# Test data used from https://github.com/i-pi/tutorials-schools/tree/main/tutorial-1/ex-2
+# Run i-PI with INET socket, https://www.cp2k.org/howto:ipi
+# INET socket supports i-PI and cp2k running on different nodes
+
+# <total_time> setting inside input.xml should specify number of seconds smaller than the time requested via SLURM with --time
+
+module purge
+module load i-pi/py39/2.4
+module load compiler/gcc/10 openmpi/4.1 cp2k/9.1
+
+# print i-pi log
+export PYTHONUNBUFFERED=1
+
+# for no CUDA support set
+export PSM2_CUDA=0
+# for CUDA support set
+# export PSM2_CUDA=1
+
+HOST=$(hostname)
+
+# Find available port
+# https://stackoverflow.com/questions/28989069/how-to-find-a-free-tcp-port/45539101#45539101
+BASE_PORT=16998
+INCREMENT=1
+port=$BASE_PORT
+isfree=$(netstat -taln | grep $port)
+while [[ -n "$isfree" ]]; do
+    port=$[port+INCREMENT]
+    isfree=$(netstat -taln | grep $port)
+done
+echo "Usable Port: $port"
+
+# --nodes=3: run i-pi on 1 node and find 2 nodes to run cp2k on
+nodelist > ./PBS_NODEFILE
+NODES=`cat PBS_NODEFILE | uniq |wc -l`
+compute_node1=`cat PBS_NODEFILE | uniq | sed -n 2p | cut -d"." -f1`
+compute_node2=`cat PBS_NODEFILE | uniq | sed -n 3p | cut -d"." -f1`
+grep $compute_node1 PBS_NODEFILE | head -n1 > nodefile1
+grep $compute_node2 PBS_NODEFILE | head -n1 > nodefile2
+
+# INET socket requires address and port modifications
+sed -i "s/address>[^<]*</address>$HOST</" input.xml
+sed -i "s/port>[^<]*</port>$port</" input.xml
+i-pi input.xml &> log.ipi &
+sleep 20
+
+export SRUN_CPUS_PER_TASK=1
+
+# INET socket requires address and port modifications
+sed -i "s/HOST.*/HOST $HOST/" cp2k.in
+sed -i "s/PORT.*/PORT $port/" cp2k.in
+
+# This will start 2 cp2k jobs with --mem-per-cpu=10G split across remaining ntasks
+# Using srun runs each job sequentually, while mpirun runs in parallel
+mpirun -machinefile nodefile1 `which cp2k` -i cp2k.in -o cp2k_n1.out &
+mpirun -machinefile nodefile2 `which cp2k` -i cp2k.in -o cp2k_n2.out &
+wait
+sleep 5
