@@ -11,6 +11,8 @@
 # Run i-PI with UNIX socket, https://www.cp2k.org/howto:ipi
 # UNIX socket requries for i-PI and cp2k to run on the same node
 
+# <total_time> setting inside input.xml should specify number of seconds smaller than the time requested via SLURM with --time
+
 module purge
 module load i-pi/py39/2.4
 module load compiler/gcc/10 openmpi/4.1 cp2k/9.1
