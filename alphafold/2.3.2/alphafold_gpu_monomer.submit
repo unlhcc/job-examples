@@ -1,0 +1,34 @@
+#!/bin/bash
+#SBATCH --job-name=AlphaFold_GPU_example
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=50gb
+#SBATCH --time=168:00:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --error=AlphaFold_GPU_monomer.%J.err
+#SBATCH --output=AlphaFold_GPU_monomer.%J.out
+
+module purge
+module load apptainer
+
+# the needed databases are downloaded in /work/HCC/BCRF/app_specific/alphafold/2.3.2/
+apptainer run -B /work/HCC/BCRF/app_specific/alphafold/2.3.2/:/data -B .:/etc \
+     --pwd /app/alphafold docker://unlhcc/alphafold:2.3.2 \
+     # --fasta_paths should be set to the absolute path to the input fasta file
+     --fasta_paths=input.fasta \
+     # --output_dir should be set to the absolute path to the output directory
+     --output_dir=output_directory \
+     # monomer requires fasta file with single sequence
+     --model_preset=monomer \
+     --max_template_date=2023-10-10 \
+     --data_dir=/data \
+     --use_gpu_relax \
+     --db_preset=full_dbs \
+     --uniref90_database_path=/data/uniref90/uniref90.fasta \
+     --mgnify_database_path=/data/mgnify/mgy_clusters_2022_05.fa \
+     --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+     --template_mmcif_dir=/data/pdb_mmcif/mmcif_files \
+     --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
+     --uniref30_database_path=/data/uniref30/UniRef30_2021_03 \
+     --pdb70_database_path=/data/pdb70/pdb70
