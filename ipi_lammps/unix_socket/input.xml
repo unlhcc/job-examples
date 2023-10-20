@@ -9,7 +9,7 @@
     <seed>32415</seed>
   </prng>
   <ffsocket name='lammps' mode='unix'>
-    <address>c3616.swan.hcc.unl.edu</address>
+    <address>localhost</address>
   </ffsocket>
   <system>
     <initialize nbeads='4'>
