@@ -34,4 +34,4 @@ sleep 20
 sed -i "s/localhost/$HOST/" in.lmp
 # This will start 20 lammps jobs with --mem-per-cpu=10G on the same node where i-pi is running
 # UNIX socket requries for i-pi and lammps to run on the same node
-mpirun `which lmp` < in.lmp > lamps.out
+mpirun `which lmp` < in.lmp > lammps.out
