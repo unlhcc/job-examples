@@ -13,7 +13,5 @@ echo $SLURM_JOB_ID > ./jobid
 
 module load gaussian/16/RevA
 source ${g16root}/g16/bsd/g16.profile
-export GAUSS_SCRDIR=$TMPDIR
 
 g16 test_g98.com
-#g16 au3O2-c13-pbepbegd3iop30-opt-tz.gjf
