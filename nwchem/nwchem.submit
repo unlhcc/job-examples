@@ -6,6 +6,11 @@
 #SBATCH --error=nwchem_job.%J.err
 #SBATCH --output=nwchem_job.%J.out
 
+# If you receive an error similar to
+# "Exhausted 1048576 MQ irecv request descriptors, which usually indicates a user program error or insufficient request descriptors (PSM2_MQ_RECVREQS_MAX=1048576)"
+# then uncomment the following line:
+# export PSM2_MEMORY=large
+
 module purge
 module load compiler/intel/20 openmpi/4.0 nwchem/7.0
 mpirun nwchem water.nw
