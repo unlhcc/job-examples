@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH --job-name=VirMAP_example
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=1000gb
+#SBATCH --time=01:00:00
+#SBATCH --error=VirMAP.%J.err
+#SBATCH --output=VirMAP.%J.out
+
+module purge
+module load apptainer
+
+# the needed database and indices are downloaded in /work/HCC/BCRF/app_specific/virmap/037156e/db
+
+# Java Xmx is set with bigRam, so please adjust it accordingly, e.g.,
+# --bigRam 300 will set maximum Java heap memory to 300GBs
+# --bigRam should be less than --mem
+
+# test data used from https://github.com/cmmr/virmap/#test-run-viral-mock-community
+# virMAP is memory intensive package
+# for test data used RAM memory was ~850GBs
+
+export VIRMAP_DB=/work/HCC/BCRF/app_specific/virmap/037156e/db
+apptainer exec -B $WORK:/scratch/tmp docker://unlhcc/virmap Virmap.pl --threads 4 \
+    --readF SRR9875293_1.fastq --readR SRR9875293_2.fastq --useMegahit --useBbnorm \
+    --sampleName SRR9875293 --outputDir VirmapRun \
+    --bigRam 950 \
+    --taxaJson ${VIRMAP_DB}/Taxonomy.virmap --virDmnd ${VIRMAP_DB}/virDmnd.dmnd \
+    --virBbmap ${VIRMAP_DB}/virBbmap --gbBlastn ${VIRMAP_DB}/gbBlastn --gbBlastx ${VIRMAP_DB}/gbBlastx.dmnd 2> VirmapRun.err
