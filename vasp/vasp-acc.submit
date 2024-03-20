@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=vasp_example
+#SBATCH --ntasks=8
+#SBATCH --mem-per-cpu=1G
+#SBATCH --time=00:15:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --error=vasp_job.%J.err
+#SBATCH --output=vasp_job.%J.out
+
+module purge
+module load compiler/nvhpc/21.9 openmpi/3.1 vasp-acc/6.4
+mpirun vasp_std
