@@ -12,4 +12,6 @@
 module purge
 module load compiler/nvhpc/21.9 openmpi/3.1 vasp-acc/6.4
 export MKL_THREADING_LAYER=INTEL OMP_NUM_THREADS=$SLURM_TASKS_PER_NODE
+# VASP-ACC is limited to 1 MPI rank per GPU
+# If you request multiple GPUs you must adjust '-np 1' to match
 mpirun -np 1 vasp_std
