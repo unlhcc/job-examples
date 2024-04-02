@@ -7,7 +7,8 @@
 #SBATCH --error=blast.aa.multi.%J.err
 #SBATCH --output=blast.aa.multi.%J.out
 
-module load blast/2.10
+module purge
+module load blast/2.15
 
 cp yeast.aa /scratch
 cp yeast.aa.fasta /scratch

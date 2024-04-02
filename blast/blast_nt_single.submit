@@ -7,12 +7,13 @@
 #SBATCH --error=blast.nt.single.%J.err
 #SBATCH --output=blast.nt.single.%J.out
 
-module load blast/2.10
+module purge
+module load blast/2.15
 module load biodata/1.0
 
-cp $BLAST/nt.00.n* /scratch
+cp $BLAST/nt.000.n* /scratch
 cp $BLAST/nt.n* /scratch
 cp yeast.nt.fasta /scratch
 
-blastn -db /scratch/nt.00 -query /scratch/yeast.nt.fasta -out /scratch/blast_nt_single.alignments
+blastn -db /scratch/nt.000 -query /scratch/yeast.nt.fasta -out /scratch/blast_nt_single.alignments
 cp /scratch/blast_nt_single.alignments .
