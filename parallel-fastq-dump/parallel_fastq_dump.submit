@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=download
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=168:00:00
+#SBATCH --mem=1gb
+#SBATCH --partition=batch
+
+sra_id=SRR22752329
+
+# Download data from NCBI using SRA ids
+# parallel-fastq-dump is faster version compared to fastq-dump that can be slow sometimes
+module purge
+module load parallel-fastq-dump/0.6
+
+prefetch ${sra_id}
+parallel-fastq-dump --sra-id ${sra_id} --threads 1 --split-3
+
+rm -rf ${sra_id}/

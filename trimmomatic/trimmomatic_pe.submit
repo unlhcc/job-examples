@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=trimmomatic
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=168:00:00
+#SBATCH --mem=2gb
+#SBATCH --partition=batch
+
+module purge
+module load trimmomatic/0.39
+
+export _JAVA_OPTIONS="-Xms512m -Xmx1g"
+
+# Partial input data from NCBI SRR22752329
+sra_id=SRR22752329
+
+trimmomatic PE -threads 8 ${sra_id}_1_sub.fastq ${sra_id}_2_sub.fastq \
+    ${sra_id}_1_tr.fastq ${sra_id}_output_forward_unpaired.fq ${sra_id}_2_tr.fastq ${sra_id}_output_reverse_unpaired.fq \
+    LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:80
