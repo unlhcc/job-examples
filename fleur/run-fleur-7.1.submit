@@ -1,0 +1,15 @@
+#!/bin/sh
+#SBATCH -J vasp
+#SBATCH --nodes=1 --ntasks-per-node=16
+#SBATCH --mem-per-cpu=8192
+#SBATCH --time=07:30:00
+#SBATCH --partition=batch
+#SBATCH --error=TestJob2.stder
+#SBATCH --output=TestJob2.stdout
+
+module load compiler/gcc/9  openmpi/4.1 fleur/6.2
+
+
+export OMP_NUM_THREADS=16
+
+mpirun -np 16 fleur_MPI
