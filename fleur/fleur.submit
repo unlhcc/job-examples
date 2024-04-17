@@ -1,0 +1,18 @@
+#!/bin/sh
+#SBATCH -J fleur
+#SBATCH --ntasks=12
+#SBATCH --mem-per-cpu=2gb
+#SBATCH --time=07:30:00
+#SBATCH --partition=batch
+#SBATCH --error=fleur.%J.stder
+#SBATCH --output=fleur.%J.stdout
+
+module purge
+module load compiler/gcc/9 openmpi/4.1 fleur/7.0
+
+# for no CUDA support
+export PSM2_CUDA=0
+export OMP_NUM_THREADS=3
+
+# test input file inpSi.txt is used from https://www.flapw.de/MaX-6.0/future/F2/
+mpirun -np 4 `which fleur_MPI`
