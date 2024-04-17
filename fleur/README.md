@@ -1,4 +1,4 @@
-Examples for running [Fleur-7.1](https://www.flapw.de/MaX-7.0/)
+Examples for running [Fleur 7.0](https://www.flapw.de/MaX-7.0/)
 
 In this example you need to create an input file "inpSi.txt" and 
 
