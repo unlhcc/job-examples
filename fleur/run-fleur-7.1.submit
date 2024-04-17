@@ -7,7 +7,7 @@
 #SBATCH --error=TestJob2.stder
 #SBATCH --output=TestJob2.stdout
 
-module load compiler/gcc/9  openmpi/4.1 fleur/6.2
+module load compiler/gcc/9  openmpi/4.1 fleur/7.0
 
 
 export OMP_NUM_THREADS=16
