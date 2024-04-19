@@ -8,6 +8,6 @@
 #SBATCH --output=TestJob.%J.stdout
 
 module purge
-module load compiler/intel/20 openmpi/4.0 elk/8.7
+module load compiler/intel/20 openmpi/4.0 elk/9.5
 
 mpiexec elk elk.in
