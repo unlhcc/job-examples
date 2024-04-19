@@ -10,4 +10,5 @@
 module purge
 module load compiler/intel/20 openmpi/4.0 elk/9.5
 
+# test input file elk.in used from https://sourceforge.net/projects/elk/files/
 mpiexec elk elk.in
