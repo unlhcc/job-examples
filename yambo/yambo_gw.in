@@ -1,0 +1,27 @@
+#                                                                     
+#                                                                     
+# Y88b    /   e           e    e      888~~\    ,88~-_                
+#  Y88b  /   d8b         d8b  d8b     888   |  d888   \               
+#   Y88b/   /Y88b       d888bdY88b    888 _/  88888    |              
+#    Y8Y   /  Y88b     / Y88Y Y888b   888  \  88888    |              
+#     Y   /____Y88b   /   YY   Y888b  888   |  Y888   /               
+#    /   /      Y88b /          Y888b 888__/    `88_-~                
+#                                                                     
+#                                                                     
+# Version 5.2.3 Revision 22799 Hash (prev commit) bad66dc080          
+#                    Branch is (HEAD                                  
+#         MPI+OpenMP+SLK+SLEPC+HDF5_MPI_IO Build                      
+#                http://www.yambo-code.eu                             
+#
+HF_and_locXC                     # [R] Hartree-Fock
+infver                           # [R] Input file variables verbosity
+NLogCPUs=0                       # [PARALLEL] Live-timing CPU`s (0 for all)
+PAR_def_mode= "balanced"         # [PARALLEL] Default distribution mode ("balanced"/"memory"/"workload"/"KQmemory")
+SE_CPU= "1 2 4"                  # [PARALLEL] CPUs for each role
+SE_ROLEs= "q qp b"               # [PARALLEL] CPUs roles (q,qp,b)
+SE_Threads=0                     # [OPENMP/GW] Number of threads for self-energy
+EXXRLvcs=  3187            RL    # [XX] Exchange    RL components
+VXCRLvcs=  3187            RL    # [XC] XCpotential RL components
+%QPkrange                        # [GW] QP generalized Kpoint/Band indices
+1|14|1|100|
+%
