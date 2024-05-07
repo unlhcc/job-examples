@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem=4GB
+#SBATCH --partition=gpu
+#SBATCH --time=00:30:00
+#SBATCH --gres=gpu:1
+#SBATCH --error=julia_example.%J.err
+#SBATCH --output=julia_example.%J.out
+#SBATCH --job-name=julia_gpu_example
+
+module load julia/1.9 cuda/12.2 
+
+# Adding the CUDA package is only needed for the first time. 
+julia -e 'import Pkg; Pkg.add("CUDA")'
+
+julia julia_gpu.jl
