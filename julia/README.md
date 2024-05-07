@@ -1,9 +1,6 @@
 # Running julia scripts on HCC Clusters
 
-This example shows how to submit jobs to run julia scripts on HCC's clusters using a basic "Hello World!" script.
+This example shows how to submit jobs to run julia scripts on HCC's clusters using examples from [JuliaGPU](https://cuda.juliagpu.org/stable/tutorials/introduction/#Your-first-GPU-computation)
 
-To run this example, use the `sbatch` command to submit `python.submit`
+To run this example, use the `sbatch` command to submit `julia_cpu.submit` or `julia_gpu.submit`
 
-# GPU Example Job
-
-Before you submit the julia_gpu.submit script, you will need to install CUDA in an interactive job first. 
