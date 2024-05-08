@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=verkko
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=10G
+#SBATCH --time=01:00:00
+#SBATCH --partition=batch
+#SBATCH --error=verkko.%J.err
+#SBATCH --output=verkko.%J.out
+
+module purge
+module load verkko/2.0
+
+# test data is available at https://github.com/marbl/verkko?tab=readme-ov-file#test-data
+verkko -d asm --hifi ./hifi.fastq.gz --nano ./ont.fastq.gz --threads $SLURM_NTASKS_PER_NODE --slurm
