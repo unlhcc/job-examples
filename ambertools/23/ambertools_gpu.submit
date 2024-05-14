@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=AmberTools
+#SBATCH --ntasks=1
+#SBATCH --mem=10GB
+#SBATCH --time=10:00:00
+#SBATCH --error=ambertools_gpu_job.%J.err
+#SBATCH --output=ambertools_gpu_job.%J.out
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+
+module purge
+module load compiler/gcc/11 openmpi/4.1 ambertools/23 cuda/11.6
+
+# example data is used from https://ambermd.org/tutorials/basic/tutorial14/index.php#Running_on_GPUs_with_pmemd_
+pmemd.cuda -O -i md.in -p RAMP1.prmtop -c RAMP1_equil.rst7 -ref RAMP1_equil.rst7 -o RAMP1_md.out -r RAMP1_md.rst7 -x RAMP1_md.nc
