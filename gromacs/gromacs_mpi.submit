@@ -7,6 +7,6 @@
 #SBATCH --output=gromacs_mpi.%J.stdout
 
 module purge
-module load compiler/gcc/10 openmpi/4.1 gromacs-gpu/2023
+module load compiler/gcc/11 openmpi/4.1 gromacs/2024.1
 
 mpirun gmx mdrun
