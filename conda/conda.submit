@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=5gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=conda_example
+#SBATCH --error=conda_example.%J.err
+#SBATCH --output=conda_example.%J.out
+
+# With conda environments, it is best practice to purge currently loaded modules
+# to prevent any version or environment conflicts
+
+module purge
+module load miniforge/24.5
+
+# Replace "name_of_your_environment" with your conda environment's name or path.
+conda activate name_of_your_environment
+
+# Run your code that uses the conda environment.
+python helloworld.py
