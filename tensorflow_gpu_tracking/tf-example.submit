@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=tensorflow_gpu_example
+#SBATCH --ntasks=4
+#SBATCH --mem=4g
+#SBATCH --time=00:15:00
+#SBATCH --error=tf_job.%J.err
+#SBATCH --output=tf_job.%J.out
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+
+module purge
+module load tensorflow-gpu/py39/2.9
+
+curpath=`pwd`
+cd $WORK
+nohup nvidia-smi --query-gpu=timestamp,index,gpu_bus_id,utilization.gpu,utilization.memory,memory.used,memory.total --format=csv -f gpu_usage_log.csv-$SLURM_JOB_ID -l 1  > /dev/null 2>&1 &
+gpumonpid=$!
+nohup nvidia-smi --query-compute-apps=timestamp,gpu_bus_id,pid,used_memory --format=csv  -f pid_gpu_usage_log-$SLURM_JOB_ID.csv -l 1  > /dev/null 2>&1 &
+gpumonprocpid=$!
+nohup top -u <LOGIN-ID> -d 10 -c -b -n 2 > pid_lookup-$SLURM_JOB_ID.txt 2>&1 & 
+cd $curpath
+
+python tf_hello.py
+
+kill $gpumonpid
+kill $gpumonprocpid
