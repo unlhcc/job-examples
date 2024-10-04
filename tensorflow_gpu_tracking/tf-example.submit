@@ -17,6 +17,7 @@ nohup nvidia-smi --query-gpu=timestamp,index,gpu_bus_id,utilization.gpu,utilizat
 gpumonpid=$!
 nohup nvidia-smi --query-compute-apps=timestamp,gpu_bus_id,pid,used_memory --format=csv  -f pid_gpu_usage_log-$SLURM_JOB_ID.csv -l 1  > /dev/null 2>&1 &
 gpumonprocpid=$!
+# Please replace <LOGIN-ID> with your HCC username
 nohup top -u <LOGIN-ID> -d 10 -c -b -n 2 > pid_lookup-$SLURM_JOB_ID.txt 2>&1 & 
 cd $curpath
 
