@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=namd_mpi
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=10G
+#SBATCH --time=168:00:00
+#SBATCH --error=namd_mpi.%J.err
+#SBATCH --output=namd_mpi.%J.out
+
+module purge
+module load compiler/gcc/11 openmpi/4.1 namd/3.0
+
+# test input data is used from https://www.ks.uiuc.edu/Research/namd/utilities/
+# wget https://www.ks.uiuc.edu/Research/namd/utilities/apoa1.zip
+charmrun ++mpiexec `which namd3` ++n 8 apoa1/apoa1.namd

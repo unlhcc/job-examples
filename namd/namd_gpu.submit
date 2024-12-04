@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --job-name=namd_gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=10G
+#SBATCH --time=168:00:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:2
+#SBATCH --error=namd_gpu.%J.err
+#SBATCH --output=namd_gpu.%J.out
+
+module purge
+module load namd-gpu/3.0
+
+# test input data is used from https://www.ks.uiuc.edu/Research/namd/utilities/
+# wget https://www.ks.uiuc.edu/Research/namd/utilities/apoa1.zip
+namd3 +p4 +devices 0,1 apoa1/apoa1.namd
