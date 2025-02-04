@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -J gamess
+#SBATCH --job-name=gamess_test
 #SBATCH --nodes=2 
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem-per-cpu=2048
 #SBATCH --time=02:00:00
-#SBATCH --error=TestJob.%J.stderr
-#SBATCH --output=TestJob.%J.stdout
+#SBATCH --error=gamess_test.%J.stderr
+#SBATCH --output=gamess_test.%J.stdout
 
 module purge
 module load compiler/intel/19 openmpi/4.0
