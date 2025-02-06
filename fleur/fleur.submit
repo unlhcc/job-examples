@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH -J fleur
+#SBATCH --job-name=fleur
 #SBATCH --ntasks=12
 #SBATCH --mem-per-cpu=2gb
 #SBATCH --time=07:30:00

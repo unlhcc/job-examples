@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=guppy-gpu
-#SBATCH --output=guppy-gpu_%j.out
-#SBATCH --error=guppy-gpu_%j.err
+#SBATCH --job-name=guppy_gpu
+#SBATCH --output=guppy_gpu.%j.out
+#SBATCH --error=guppy_gpu.%j.err
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8

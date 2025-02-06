@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=20gb
 #SBATCH --time=168:00:00
-#SBATCH --error=mcell.%J.err
-#SBATCH --output=mcell.%J.out
+#SBATCH --error=mcell_example.%J.err
+#SBATCH --output=mcell_example.%J.out
 
 module purge
 module load apptainer

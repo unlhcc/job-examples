@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -J g09
+#SBATCH --job-name=gaussian_09
 #SBATCH --nodes=1 --ntasks-per-node=4
 #SBATCH --mem-per-cpu=2000
 #SBATCH --time=10:00:00
 #SBATCH --partition=batch
-#SBATCH --error=TestJob.stderr
-#SBATCH --output=TestJob.stdout
+#SBATCH --error=gaussian_09.$J.stderr
+#SBATCH --output=gaussian_09.%J.stdout
 
 nodelist >  ./machines.LINUX
 echo $SLURM_JOB_ID > ./jobid
