@@ -3,8 +3,9 @@
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=10:00:00
 #SBATCH --mem-per-cpu=4gb
-#SBATCH --error=comsol_job.%J.err
-#SBATCH --output=comsol_job.%J.out
+#SBATCH --job-name=comsol_example
+#SBATCH --error=comsol_example.%J.err
+#SBATCH --output=comsol_example.%J.out
 
 module load comsol
 comsol batch -inputfile effective_diffusivity.mph -outputfile effective_diffusivity_OUT.mph -np ${SLURM_NTASKS_PER_NODE}

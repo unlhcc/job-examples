@@ -5,8 +5,8 @@
 #SBATCH --mem-per-cpu=2gb
 #SBATCH --time=01:00:00
 #SBATCH --job-name=abaqus_test
-#SBATCH --error=job.%J.err
-#SBATCH --output=job.%J.out
+#SBATCH --error=abaqus_test.%J.err
+#SBATCH --output=abaqus_test.%J.out
 
 if [[ "${SHELL}" =~ "tcsh" ]]
 then

@@ -4,8 +4,8 @@
 #SBATCH --mem=1gb
 #SBATCH --time=00:15:00
 #SBATCH --job-name=blast_nucleotide
-#SBATCH --error=blast.%J.err
-#SBATCH --output=blast.%J.out
+#SBATCH --error=blast_nucleotide.%J.err
+#SBATCH --output=blast_nucleotide.%J.out
 #SBATCH --qos=short
 
 module load blast/2.2.29

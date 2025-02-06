@@ -4,8 +4,8 @@
 #SBATCH --mem=5gb
 #SBATCH --time=01:00:00
 #SBATCH --job-name=blast_nt_single
-#SBATCH --error=blast.nt.single.%J.err
-#SBATCH --output=blast.nt.single.%J.out
+#SBATCH --error=blast_nt_single.%J.err
+#SBATCH --output=blast_nt_single.%J.out
 
 module purge
 module load blast/2.15

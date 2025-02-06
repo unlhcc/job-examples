@@ -4,8 +4,8 @@
 #SBATCH --mem-per-cpu=2000
 #SBATCH --time=01:00:00
 #SBATCH --partition=batch
-#SBATCH --error=TestJob.%J.stderr
-#SBATCH --output=TestJob.%J.stdout
+#SBATCH --error=elk.%J.stderr
+#SBATCH --output=elk.%J.stdout
 
 module purge
 module load compiler/intel/20 openmpi/4.0 elk/9.5
