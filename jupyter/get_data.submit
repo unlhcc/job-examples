@@ -3,8 +3,8 @@
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=5gb
 #SBATCH --time=00:20:00
-#SBATCH --job-name=get_data
-#SBATCH --error=get_data.%J.err
-#SBATCH --output=get_data.%J.out
+#SBATCH --job-name=jupyter_example
+#SBATCH --error=jupyter_example.%J.err
+#SBATCH --output=jupyter_example.%J.out
 
 bash get_data.sh

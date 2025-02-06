@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=10gb
 #SBATCH --time=168:00:00
-#SBATCH --error=Neurodocker_FSL_bet.%J.err
-#SBATCH --output=Neurodocker_FSL_bet.%J.out
+#SBATCH --error=Neurodocker_FSL_bet_example.%J.err
+#SBATCH --output=Neurodocker_FSL_bet_example.%J.out
 
 module purge
 module load apptainer

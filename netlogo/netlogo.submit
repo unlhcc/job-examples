@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=netlogo-headless
-#SBATCH --output=netlogo_%J.out
-#SBATCH --error=netlogo_%J.err
+#SBATCH --job-name=netlogo_headless
+#SBATCH --output=netlogo_headless.%J.out
+#SBATCH --error=netlogo_headless.%J.err
 #SBATCH --time=00:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4

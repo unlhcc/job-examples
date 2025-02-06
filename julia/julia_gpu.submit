@@ -5,8 +5,8 @@
 #SBATCH --partition=gpu
 #SBATCH --time=00:30:00
 #SBATCH --gres=gpu:1
-#SBATCH --error=julia_example.%J.err
-#SBATCH --output=julia_example.%J.out
+#SBATCH --error=julia_gpu_example.%J.err
+#SBATCH --output=julia_gpu_example.%J.out
 #SBATCH --job-name=julia_gpu_example
 
 module load julia/1.9 cuda/12.2 
