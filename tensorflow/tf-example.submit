@@ -3,8 +3,8 @@
 #SBATCH --ntasks=4
 #SBATCH --mem=4g
 #SBATCH --time=00:15:00
-#SBATCH --error=tf_job.%J.err
-#SBATCH --output=tf_job.%J.out
+#SBATCH --error=tensorflow_gpu_example.%J.err
+#SBATCH --output=tensorflow_gpu_example.%J.out
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
 

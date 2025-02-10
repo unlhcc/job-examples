@@ -3,8 +3,8 @@
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=1G
 #SBATCH --time=00:15:00
-#SBATCH --error=vasp_job.%J.err
-#SBATCH --output=vasp_job.%J.out
+#SBATCH --error=vasp_example.%J.err
+#SBATCH --output=vasp_example.%J.out
 
 module load compiler/intel/20 openmpi/4.1 vasp/6.4
 mpirun vasp_std
