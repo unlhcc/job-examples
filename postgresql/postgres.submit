@@ -2,8 +2,8 @@
 #SBATCH --time=168:00:00
 #SBATCH --mem=8gb
 #SBATCH --job-name=postgres_server
-#SBATCH --error=postgres_server.err
-#SBATCH --output=postgres_server.out
+#SBATCH --error=postgres_server.%J.err
+#SBATCH --output=postgres_server.%J.out
 #SBATCH --licenses=common
 #SBATCH --dependency=singleton
 #SBATCH --signal=B:SIGINT@60

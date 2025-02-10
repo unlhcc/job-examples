@@ -1,10 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=download
+#SBATCH --job-name=fastq_dump
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --time=168:00:00
 #SBATCH --mem=1gb
 #SBATCH --partition=batch
+#SBATCH --error=fastq_dump.%J.err
+#SBATCH --output=fastq_dump.%J.out
 
 sra_id=SRR22752329
 

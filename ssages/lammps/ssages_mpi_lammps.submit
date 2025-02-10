@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=ssages_lammps
+#SBATCH --job-name=ssages_lammps_mpi_example
 #SBATCH --ntasks=2
 #SBATCH --mem-per-cpu=1gb
 #SBATCH --time=01:00:00
 #SBATCH --partition=batch
-#SBATCH --error=ssages.%J.err
-#SBATCH --output=ssages.%J.out
+#SBATCH --error=ssages_lammps_mpi_example.%J.err
+#SBATCH --output=ssages_lammps_mpi_example.%J.out
 
 module purge
 module load compiler/gcc/9 openmpi/4.0 ssages/0.9lammps
