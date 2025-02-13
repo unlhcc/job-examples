@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=1gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=job_array_example
+#SBATCH --error=job_array_example.%J_%a.err
+#SBATCH --output=job_array_example.%J_%a.out
+#SBATCH --array=0-5
+
+module purge
+
+# Run the various examples
+module load python/3.11
+python array.py
+
+module load java/19
+java Array.java
+
+module load R/4.3
+Rscript array.R
+
+
