@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --job-name=AlphaFold_30_CPU_example
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=50gb
+#SBATCH --time=168:00:00
+#SBATCH --partition=batch
+#SBATCH --error=AlphaFold_30_CPU_examples.%J.err
+#SBATCH --output=AlphaFold_30_CPU_example.%J.out
+
+module purge
+module load apptainer
+
+# load the needed datasets and models
+module load alphafold3/3.0
+
+# data paths should be absolute
+# CPU-only I/O intensive MSA search
+apptainer exec docker://unlhcc/alphafold3:3.0.1 run_alphafold.sh \
+    --model_dir=$AF3_MODELS \
+    --db_dir=$AF3_DBS \
+    --json_path=input.json \
+    --output_dir=output_directory \
+    --norun_inference
