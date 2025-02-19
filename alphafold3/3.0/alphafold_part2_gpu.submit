@@ -6,13 +6,10 @@
 #SBATCH --time=168:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
-##SBATCH --constraint='gpu_a100|gpu_h100'
 #SBATCH --error=AlphaFold_30_GPU_examples.%J.err
 #SBATCH --output=AlphaFold_30_GPU_example.%J.out
 
 module purge
-module load apptainer
-
 # load the needed datasets and models
 module load alphafold3/3.0
 

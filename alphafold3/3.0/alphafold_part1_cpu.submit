@@ -9,8 +9,6 @@
 #SBATCH --output=AlphaFold_30_CPU_example.%J.out
 
 module purge
-module load apptainer
-
 # load the needed datasets and models
 module load alphafold3/3.0
 
