@@ -18,6 +18,6 @@ module load alphafold3/3.0
 apptainer exec docker://unlhcc/alphafold3:3.0.1 run_alphafold.sh \
     --model_dir=$AF3_MODELS \
     --db_dir=$AF3_DBS \
-    --json_path=input.json \
+    --json_path=output_directory/input.json \
     --output_dir=output_directory \
     --norun_data_pipeline
