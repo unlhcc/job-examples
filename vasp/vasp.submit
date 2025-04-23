@@ -6,5 +6,7 @@
 #SBATCH --error=vasp_job.%J.err
 #SBATCH --output=vasp_job.%J.out
 
-module load compiler/intel/20 openmpi/4.1 vasp/6.4
+module purge
+module load compiler/intel/20 openmpi/4.1 vasp/6.5
+
 mpirun vasp_std
