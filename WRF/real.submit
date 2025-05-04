@@ -3,8 +3,8 @@
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=8gb
 #SBATCH --time=00:15:00
-#SBATCH --error=wrf_real_job.%J.err
-#SBATCH --output=wrf_real_job.%J.out
+#SBATCH --error=wrf_real_example.%J.err
+#SBATCH --output=wrf_real_example.%J.out
 
 module purge
 module load compiler/pgi/20 openmpi/4.0 WRF/v4
