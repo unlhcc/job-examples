@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --job-name=dorado_gpu
+#SBATCH --output=dorado_gpu.%j.out
+#SBATCH --error=dorado_gpu.%j.err
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --constraint='gpu_v100|gpu_t4'
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:2
+#SBATCH --mem=20GB
+
+module load apptainer
+
+# supported GPU platforms
+# https://github.com/nanoporetech/dorado#platforms
+
+# please download the appropriate module, e.g.,:
+apptainer exec docker://nanoporetech/dorado:latest dorado download --model dna_r10.4.1_e8.2_400bps_hac@v4.1.0
+
+# run basecaller
+# replace model, input and output files accordingly
+apptainer exec docker://nanoporetech/dorado:latest dorado basecaller --device "cuda:all" \
+    dna_r10.4.1_e8.2_400bps_hac@v4.1.0 data.pod5 > output.bam
