@@ -21,6 +21,8 @@ The modifications to make are:
 - Change all instances of `singularity` to `apptainer`
 - Change the ntasks value from `16` to `2`
 - Remove the `--ntasks-per-socket` value
+- Add the job-name, error, and output values
+- Add the GPU partition
 
 3. Submit the job to the cluster
 
