@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=AmberTools
+#SBATCH --job-name=AmberTools_22_mpi_example
 #SBATCH --ntasks=16
 #SBATCH --mem=5GB
 #SBATCH --time=01:00:00
-#SBATCH --error=ambertools_mpi_job.%J.err
-#SBATCH --output=ambertools_mpi_job.%J.out
+#SBATCH --error=AmberTools_22_mpi_example.%J.err
+#SBATCH --output=AmberTools_22_mpi_example.%J.out
 
 module purge
 module load compiler/gcc/10 openmpi/4.1 ambertools/22

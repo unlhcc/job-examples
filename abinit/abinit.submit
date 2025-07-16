@@ -3,8 +3,8 @@
 #SBATCH --ntasks=4
 #SBATCH --mem-per-cpu=1G
 #SBATCH --time=00:05:00
-#SBATCH --error=abinit_job.%J.err
-#SBATCH --output=abinit_job.%J.out
+#SBATCH --error=abinit_example.%J.err
+#SBATCH --output=abinit_example.%J.out
 
 module purge
 module load compiler/gcc/10 openmpi/4.1 abinit/9.6

@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=4gb
+#SBATCH --time=00:10:00
+#SBATCH --job-name=java_example
+#SBATCH --error=java_example.%J.err
+#SBATCH --output=java_example.%J.out
+
+module load java/19
+
+java HelloWorld.java

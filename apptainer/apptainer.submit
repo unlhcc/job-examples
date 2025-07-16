@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --mem-per-cpu=4096
-#SBATCH --job-name=apptainer-test
-#SBATCH --error=apptainer.%J.err
-#SBATCH --output=apptainer.%J.out
+#SBATCH --job-name=apptainer_test
+#SBATCH --error=apptainer_test.%J.err
+#SBATCH --output=apptainer_test.%J.out
 
 module purge
 module load apptainer

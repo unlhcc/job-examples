@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=AlphaFold_GPU_example
+#SBATCH --job-name=AlphaFold_232_GPU_monomer_example
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=50gb
 #SBATCH --time=168:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
-#SBATCH --error=AlphaFold_GPU_monomer.%J.err
-#SBATCH --output=AlphaFold_GPU_monomer.%J.out
+#SBATCH --error=AlphaFold_232_GPU_monomer_example.%J.err
+#SBATCH --output=AlphaFold_232_GPU_monomer_example.%J.out
 
 module purge
 module load apptainer

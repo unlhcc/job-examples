@@ -1,10 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=ashs
+#SBATCH --job-name=ashs_parallel_example
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --time=168:00:00
 #SBATCH --mem=20gb
 #SBATCH --partition=batch
+#SBATCH --error=ashs_parallel_example.%J.err
+#SBATCH --output=ashs_parallel_example.%J.out
 
 module purge
 module load ashs/1.0

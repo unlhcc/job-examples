@@ -2,8 +2,9 @@
 #SBATCH --ntasks=4
 #SBATCH --time=10:00:00
 #SBATCH --mem-per-cpu=4gb
-#SBATCH --error=fluent.%J.err
-#SBATCH --output=fluent.%J.out
+#SBATCH --job-name=fluent_2021
+#SBATCH --error=fluent_2021.%J.err
+#SBATCH --output=fluent_2021.%J.out
 
 rm -f *.trn *.hosts cleanup*
 

@@ -4,8 +4,8 @@
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
 #SBATCH --job-name=mumax3_example
-#SBATCH --error=mumaxjob.%J.err
-#SBATCH --output=mumaxjob.%J.out
+#SBATCH --error=mumax3_example.%J.err
+#SBATCH --output=mumax3_example.%J.out
 
 
 module load mumax3/3.10

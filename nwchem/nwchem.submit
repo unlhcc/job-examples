@@ -3,8 +3,8 @@
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=1G
 #SBATCH --time=00:15:00
-#SBATCH --error=nwchem_job.%J.err
-#SBATCH --output=nwchem_job.%J.out
+#SBATCH --error=nwchem_example.%J.err
+#SBATCH --output=nwchem_example.%J.out
 
 # If you receive an error similar to
 # "Exhausted 1048576 MQ irecv request descriptors, which usually indicates a user program error or insufficient request descriptors (PSM2_MQ_RECVREQS_MAX=1048576)"

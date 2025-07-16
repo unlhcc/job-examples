@@ -5,8 +5,8 @@
 #SBATCH --partition=gpu
 #SBATCH --ntasks-per-gpu=2
 #SBATCH --gres=gpu:2
-#SBATCH --error=espresso_gpu_job.%J.err
-#SBATCH --output=espresso_gpu_job.%J.out
+#SBATCH --error=espresso_gpu_example.%J.err
+#SBATCH --output=espresso_gpu_example.%J.out
 
 # --gres=gpu:X
 # where X is the number of GPUs you want

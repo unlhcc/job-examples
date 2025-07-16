@@ -3,8 +3,8 @@
 #SBATCH --ntasks=4
 #SBATCH --mem-per-cpu=1G
 #SBATCH --time=00:15:00
-#SBATCH --error=cp2k_job.%J.err
-#SBATCH --output=cp2k_job.%J.out
+#SBATCH --error=cp2k_example.%J.err
+#SBATCH --output=cp2k_example.%J.out
 
 module load compiler/intel/16 openmpi/3.1 cp2k/6.1
 mpirun cp2k.popt Si_bulk8.inp

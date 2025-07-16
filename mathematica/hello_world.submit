@@ -3,8 +3,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=00:10:00
 #SBATCH --mem=1GB
-#SBATCH --output=hello_world.out
-#SBATCH --error=hello_world.err
+#SBATCH --job-name=mathematica_example
+#SBATCH --output=mathematica_example.%J.out
+#SBATCH --error=mathematica_example.%J.err
 
 module load mathematica
 

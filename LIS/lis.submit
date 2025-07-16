@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=lis_example
+#SBATCH --job-name=lis_lis_example
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=4gb
 #SBATCH --time=00:15:00
-#SBATCH --error=lis_job.%J.err
-#SBATCH --output=lis_job.%J.out
+#SBATCH --error=lis_lis_example.%J.err
+#SBATCH --output=lis_lis_example.%J.out
 
 module purge
 module load compiler/intel/19 openmpi/4.0 LIS/7.3

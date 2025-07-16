@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=AlphaFold_example
+#SBATCH --job-name=AlphaFold_200_CPU_example
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=50gb
 #SBATCH --time=168:00:00
-#SBATCH --error=AlphaFold.%J.err
-#SBATCH --output=AlphaFold.%J.out
+#SBATCH --error=AlphaFold_200_CPU_example.%J.err
+#SBATCH --output=AlphaFold_200_CPU_example.%J.out
 
 module purge
 module load apptainer

@@ -4,8 +4,8 @@
 #SBATCH --mem=5gb
 #SBATCH --time=00:10:00
 #SBATCH --job-name=blast_aa_multi
-#SBATCH --error=blast.aa.multi.%J.err
-#SBATCH --output=blast.aa.multi.%J.out
+#SBATCH --error=blast_aa_multi.%J.err
+#SBATCH --output=blast_aa_multi.%J.out
 
 module purge
 module load blast/2.15
