@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --job-name=ollama_cpu
+#SBATCH --output=ollama_cpu.%j.out
+#SBATCH --error=ollama_cpu.%j.err
+#SBATCH --time=10:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=batch
+#SBATCH --mem=30GB
+
+module purge
+module load ollama
+
+# Run Ollama server
+ollama serve &
+sleep 10
+# Capture JSON response
+response=$(curl -s -X POST http://localhost:11434/api/generate -d '{
+  "model": "gemma3:1b",
+  "prompt": "What is geometry?",
+  "stream": false,
+  "format": "json"
+}' -H "Content-Type: application/json")
+
+# Extract string from JSON response
+output=$(echo "$response" | jq -r '.response')
+echo "Response: $output"
