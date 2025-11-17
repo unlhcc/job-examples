@@ -3,3 +3,5 @@
 `ollama_cpu.submit`: Example submit script using CPU only. Please note that the CPU version requires significant amount of RAM and is significantly slower and using the GPU version is preferred.
 
 `ollama_gpu.submit`: Example submit script using GPU, requesting one GPU.
+
+`ollama_gpu_python.submit`: Example submit script using GPU and Python script, requesting one GPU.
