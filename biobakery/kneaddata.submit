@@ -21,4 +21,4 @@ kneaddata_database --download human_genome bowtie2 ./kneaddata_db
 # Please modify these paths according to your data location
 kneaddata --input1 ./data/demo1.R1.fastq.gz --input2 ./data/demo1.R2.fastq.gz \
     -db ./kneaddata_db/hg37dec_v0.1 --output kneaddata_output_demo1 -t 8 -p 8 \
-    --trimmomatic=/util/opt/anaconda/deployed-conda-envs/packages/kneaddata/envs/kneaddata-0.12.0/share/trimmomatic-0.39-2/
+    --trimmomatic /util/opt/anaconda/deployed-conda-envs/packages/kneaddata/envs/kneaddata-0.12.0/share/trimmomatic-0.40-0/
