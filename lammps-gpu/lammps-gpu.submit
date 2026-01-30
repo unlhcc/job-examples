@@ -6,7 +6,9 @@
 #SBATCH --error=lammps_gpu_example.%J.err
 #SBATCH --output=lammps_gpu_example.%J.out
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu
+#SBATCH --gres=gpu:4
 
-module load compiler/gcc/10 openmpi/4.0 lammps-gpu/29Sep2021
+module purge
+module load compiler/gcc/11 openmpi/4.1 lammps-gpu/27June2024
 mpirun lmp -sf gpu -in in_adapt.lmp
+~                                         
