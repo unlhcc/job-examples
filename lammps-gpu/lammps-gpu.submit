@@ -10,5 +10,4 @@
 
 module purge
 module load compiler/gcc/11 openmpi/4.1 lammps-gpu/27June2024
-mpirun lmp -sf gpu -in in_adapt.lmp
-~                                         
+mpirun lmp -sf gpu -in in_adapt.lmp 
