@@ -10,7 +10,7 @@
 #SBATCH --mem=10GB
 
 module purge
-module load ollama-gpu
+module load ollama-gpu/0.15
 
 # ~1 minute runtime
 # Run Ollama server

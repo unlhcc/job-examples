@@ -7,23 +7,14 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --mem=1GB
+#SBATCH --mem=10GB
 
 module purge
-module load ollama-gpu
+module load ollama-gpu/0.15
 
 # ~1 minute runtime
 # Run Ollama server
 ollama serve &
 sleep 10
-# Capture JSON response
-response=$(curl -s -X POST http://localhost:11434/api/generate -d '{
-  "model": "gemma3:1b",
-  "prompt": "What is geometry?",
-  "stream": false,
-  "format": "json"
-}' -H "Content-Type: application/json")
-
-# Extract string from JSON response
-output=$(echo "$response" | jq -r '.response')
-echo "Response: $output"
+ollama pull gemma3:1b
+ollama run gemma3:1b "What is geometry?"
