@@ -14,7 +14,7 @@ module load apptainer
 # Everything lives under one parent directory, but as separate subfolders.
 # DATA_DIR (audio/) is the ONLY thing bound to /data, so the downloaded
 # model and logs never get scanned as input audio.
-BASE_DIR=/home/<GROUP>/<USERNAME>/birdnet_example
+BASE_DIR=birdnet_example
 CHECKPOINTS_DIR="$BASE_DIR/checkpoints"
 DATA_DIR="$BASE_DIR/audio"
 LOGS_DIR="$BASE_DIR/logs"
