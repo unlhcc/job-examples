@@ -30,4 +30,4 @@ apptainer exec \
   -o /data \
   --slist /data \
   --min_conf 0.5 \
-  --threads "$SLURM_CPUS_PER_TASK"
+  --threads "$SLURM_NTASKS"
