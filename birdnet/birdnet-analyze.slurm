@@ -2,7 +2,7 @@
 #SBATCH --job-name=birdnet-analyze
 #SBATCH --partition=batch
 #SBATCH --nodes=1
-#SBATCH --ntasks-per=node=4
+#SBATCH --ntasks-per-node=4
 #SBATCH --time=03:00:00
 #SBATCH --mem=8G
 #SBATCH --output=birdnet-analyze.%j.out
