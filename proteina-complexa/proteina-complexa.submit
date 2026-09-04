@@ -1,0 +1,63 @@
+#!/bin/bash
+#SBATCH --job-name=Proteina_Complexa_example
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=64gb
+#SBATCH --time=02:00:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu
+#SBATCH --constraint=gpu_l40s
+#SBATCH --error=Proteina_Complexa_example.%J.err
+#SBATCH --output=Proteina_Complexa_example.%J.out
+
+module purge
+module load proteina-complexa/2026.05.21
+
+# the needed checkpoints are downloaded in /work/HCC/BCRF/app_specific/proteina-complexa/05212026/
+# the module sets $COMPLEXA_DATA to that path
+echo "Data Dir: $COMPLEXA_DATA"
+
+# outputs are written to ./inference, ./logs and ./evaluation_results in the submit directory
+mkdir -p inference logs evaluation_results
+
+# all four steps below share the same binds;
+BINDS="-B $COMPLEXA_DATA/ckpts:/workspace/protein-foundation-models/ckpts \
+ -B $COMPLEXA_DATA/community_models:/workspace/protein-foundation-models/community_models \
+ -B ./inference:/workspace/protein-foundation-models/inference \
+ -B ./logs:/workspace/protein-foundation-models/logs \
+ -B ./evaluation_results:/workspace/protein-foundation-models/evaluation_results"
+
+# list the available subcommands and global options
+echo "--- complexa help ---"
+apptainer exec $BINDS \
+     --pwd /workspace/protein-foundation-models \
+     docker://unlhcc/proteina-complexa \
+     complexa --help
+
+# report which checkpoints and community models the container can see
+echo "--- complexa status ---"
+apptainer exec $BINDS \
+     --pwd /workspace/protein-foundation-models \
+     docker://unlhcc/proteina-complexa \
+     complexa status
+
+# check the config parses and its referenced files exist, before spending GPU time
+echo "--- complexa validate design ---"
+apptainer exec $BINDS \
+     --pwd /workspace/protein-foundation-models \
+     docker://unlhcc/proteina-complexa \
+     complexa validate design configs/search_binder_local_pipeline.yaml
+
+# ++run_name names the output subdirectory under inference/
+# ++generation.task_name selects the target; 02_PDL1 is the PD-L1 binder example
+echo "--- complexa generate ---"
+apptainer exec $BINDS \
+     --pwd /workspace/protein-foundation-models \
+     docker://unlhcc/proteina-complexa \
+     complexa generate configs/search_binder_local_pipeline.yaml \
+     ++run_name=pdl1_${SLURM_JOB_ID} \
+     ++generation.task_name=02_PDL1
+
+echo "--- output files ---"
+ls -l inference/search_binder_local_pipeline_02_PDL1_pdl1_${SLURM_JOB_ID}/ 2>/dev/null \
+  || echo "No outputs found"
