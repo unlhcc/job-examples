@@ -11,12 +11,11 @@ module purge
 module load apptainer
 
 # the needed databases are downloaded in /work/HCC/BCRF/app_specific/alphafold/2.3.2/
+# the input file is taken from https://cosmic-cryoem.org/tools/alphafoldmultimer/
 apptainer run -B /work/HCC/BCRF/app_specific/alphafold/2.3.2/:/data -B .:/etc \
     --pwd /app/alphafold docker://unlhcc/alphafold:2.3.2 \
-    # --fasta_paths should be set to the absolute path to the input fasta file
-    --fasta_paths=input.fasta \
-    # --output_dir should be set to the absolute path to the output directory
-    --output_dir=output_directory \
+    --fasta_paths=$PWD/input_multiple.fasta \
+    --output_dir=$PWD/output_directory_cpu \
     --model_preset=multimer \
     --max_template_date=2023-10-10 \
     --data_dir=/data \
