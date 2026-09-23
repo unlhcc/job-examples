@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=AlphaFold_232_GPU_rdbs_example
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=16
 #SBATCH --mem=50gb
 #SBATCH --time=15:00:00
 #SBATCH --partition=gpu
@@ -17,17 +17,17 @@ module load apptainer
 # the input file is taken from https://cosmic-cryoem.org/tools/alphafoldmultimer/
 apptainer run -B /work/HCC/BCRF/app_specific/alphafold/2.3.2/:/data -B .:/etc \
      --pwd /app/alphafold docker://unlhcc/alphafold:2.3.2 \
-     --fasta_paths=$PWD/input_multiple.fasta \
-     --output_dir=$PWD/output_directory_gpu_reduced_dbs \
-     --model_preset=multimer \
+     --fasta_paths=$PWD/input.fasta \
+     --output_dir=$PWD/output_directory_gpu_rdbs \
+     --model_preset=monomer \
      --max_template_date=2023-10-10 \
      --data_dir=/data \
      --use_gpu_relax \
      --db_preset=reduced_dbs \
+     --use_precomputed_msas=true \
      --uniref90_database_path=/data/uniref90/uniref90.fasta \
      --mgnify_database_path=/data/mgnify/mgy_clusters_2022_05.fa \
      --template_mmcif_dir=/data/pdb_mmcif/mmcif_files \
      --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
-     --pdb_seqres_database_path=/data/pdb_seqres/pdb_seqres.txt \
-     --uniprot_database_path=/data/uniprot/uniprot_sprot.fasta \
-     --small_bfd_database_path=/data/small_bfd/bfd-first_non_consensus_sequences.fasta
+     --small_bfd_database_path=/data/small_bfd/bfd-first_non_consensus_sequences.fasta \
+     --pdb70_database_path=/data/pdb70/pdb70
