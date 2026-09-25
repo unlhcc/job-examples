@@ -1,0 +1,17 @@
+rule all:
+    input:
+        "result.txt"
+
+rule test_slurm:
+    output:
+        "result.txt"
+    threads: 1
+    resources:
+        runtime=5,
+        mem_mb=1000
+    shell:
+        """
+        echo "hostname: $(hostname)" > {output}
+        echo "SLURM_JOB_ID: $SLURM_JOB_ID" >> {output}
+        echo "SLURM_JOB_NODELIST: $SLURM_JOB_NODELIST" >> {output}
+        """
