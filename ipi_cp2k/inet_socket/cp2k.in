@@ -9,8 +9,8 @@
 &MOTION
 
   &DRIVER
-   HOST c2015.swan.hcc.unl.edu
-   PORT 16998
+   HOST localhost
+   PORT port
   &END DRIVER
 &END MOTION
 

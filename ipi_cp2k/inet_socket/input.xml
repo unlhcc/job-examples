@@ -13,8 +13,8 @@
          <latency>  1.00000000e-02</latency>
          <slots>4</slots>
          <timeout>  6.00000000e+02</timeout>
-	 <address>c2015.swan.hcc.unl.edu</address>
-	 <port>16998</port>
+	 <address>localhost</address>
+	 <port>port</port>
    </ffsocket>  
 <system>
     <initialize nbeads="1">
