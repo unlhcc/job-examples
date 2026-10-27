@@ -1,6 +1,7 @@
 ! RIJONX BP86 def2-SVP def2/J D4 Opt CPCM(Toluene)
 
 %maxcore 2000  # use up to 2GBs of RAM
+
 %PAL NPROCS 8 END  # use 8 cores
 
 *xyz 0 1

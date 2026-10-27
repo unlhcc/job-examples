@@ -1,0 +1,26 @@
+ 'P'                                        : spsymb
+ 'phosphorus'                               : spname
+  -15.0000                                  : spzn
+   56461.71226                              : spmass
+  0.516398E-06    2.2000   39.7177   400    : rminsp, rmt, rmaxsp, nrmt
+   7                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    F
+   3   1   1   1.00000    F
+   3   1   2   2.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   3                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.5151   0  T

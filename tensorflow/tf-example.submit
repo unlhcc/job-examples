@@ -9,6 +9,6 @@
 #SBATCH --gres=gpu
 
 module purge
-module load tensorflow-gpu/py39/2.9
+module load tensorflow-gpu/py311/2.17
 
 python tf_hello.py

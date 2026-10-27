@@ -8,12 +8,13 @@
 #SBATCH --mem=20GB
 
 module purge
-module load guppy/6.2
+module load guppy/6.5
 
+# input files are taken from https://github.com/nanoporetech/ont_fast5_api/tree/master/test/data/hardlink/single_reads
 # replace the values for input_path, save_path, flowcell, and kit with your real data
 guppy_basecaller \
-	--input_path /path/to/fast5_files \
-	--save_path /path/to/output_dir \
-	--flowcell flowcell_id \
-	--kit kit_id \
+	--input_path $PWD/input/ \
+	--save_path $PWD/guppy_cpu \
+	--flowcell FLO-MIN106 \
+	--kit SQK-LSK109 \
         --num_callers ${SLURM_NTASKS_PER_NODE}

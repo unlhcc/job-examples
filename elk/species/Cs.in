@@ -1,0 +1,46 @@
+ 'Cs'                                       : spsymb
+ 'caesium'                                  : spname
+  -55.0000                                  : spzn
+   242271.8144                              : spmass
+  0.269680E-06    2.8000   68.3104   700    : rminsp, rmt, rmaxsp, nrmt
+  18                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    T
+   3   1   1   2.00000    T
+   3   1   2   4.00000    T
+   3   2   2   4.00000    T
+   3   2   3   6.00000    T
+   4   0   1   2.00000    T
+   4   1   1   2.00000    T
+   4   1   2   4.00000    T
+   4   2   2   4.00000    F
+   4   2   3   6.00000    F
+   5   0   1   2.00000    F
+   5   1   1   2.00000    F
+   5   1   2   4.00000    F
+   6   0   1   1.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   6                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -2.6912   0  T
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.9872   0  T
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.4810   0  T

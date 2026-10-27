@@ -12,5 +12,5 @@
 # export PSM2_MEMORY=large
 
 module purge
-module load compiler/intel/20 openmpi/4.0 nwchem/7.0
+module load compiler/gcc/9 openmpi/4.1 nwchem/7.2
 mpirun nwchem water.nw

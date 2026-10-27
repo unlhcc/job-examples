@@ -8,7 +8,7 @@
 #SBATCH --output=blast_nt_multi.%J.out
 
 module purge
-module load blast/2.15
+module load blast/2.17
 module load biodata/1.0
 
 cp $BLAST/nt.000.n* /scratch

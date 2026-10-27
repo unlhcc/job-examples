@@ -18,7 +18,7 @@ ollama serve &
 sleep 10
 
 # download model
-# ollama pull llama3
+ollama pull llama3
 
 # run query
 python ${PWD}/ollama-python-example.py >> response.txt

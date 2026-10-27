@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fleurInput fleurInputVersion="0.38">
+   <comment>
+      Si bulk                                                                                             
+   </comment>
+   <calculationSetup>
+      <cutoffs Kmax="3.70000000" Gmax="11.10000000" GmaxXC="11.10000000" numbands="0"/>
+      <scfLoop itmax="15" minDistance=".00001000" maxIterBroyd="15" imix="Anderson" alpha=".05000000" precondParam="0.0" spinf="2.00000000"/>
+      <coreElectrons ctail="T" frcor="F" kcrel="0" coretail_lmax="0"/>
+      <xcFunctional name="pbe" relativisticCorrections="F"/>
+      <magnetism jspins="1"/>
+      <soc l_soc="F" theta=".00000000" phi=".00000000" spav="F"/>
+      <expertModes spex="0" secvar="F"/>
+      <geometryOptimization l_f="F" forcealpha="1.00000000" forcemix="BFGS" epsdisp=".00001000" epsforce=".00001000"/>
+      <ldaU l_linMix="F" mixParam=".050000" spinf="1.000000"/>
+   </calculationSetup>
+   <cell>
+      <bzIntegration valenceElectrons="8.00000000" mode="hist" fermiSmearingEnergy=".00100000">
+         <kPointListSelection listName="default"/>
+         <!-- k-points included here -->
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="kpts.xml"> </xi:include>
+      </bzIntegration>
+      <!-- symmetry operations included here -->
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sym.xml"> </xi:include>
+      <bulkLattice scale="1.0000000000">
+         <bravaisMatrix>
+            <row-1>    0.0000000000000000     5.1306085335000002     5.1306085335000002</row-1>
+            <row-2>    5.1306085335000002     0.0000000000000000     5.1306085335000002</row-2>
+            <row-3>    5.1306085335000002     5.1306085335000002     0.0000000000000000</row-3>
+         </bravaisMatrix>
+      </bulkLattice>
+   </cell>
+   <atomSpecies>
+      <species name="Silicon (Si)" element="Si" atomicNumber="14">
+         <mtSphere radius="2.17000000" gridPoints="717" logIncrement=".01600000"/>
+         <atomicCutoffs lmax="8" lnonsphr="6"/>
+         <electronConfig flipSpins="F">
+            <coreConfig>(1s1/2) (2s1/2) (2p1/2) (2p3/2)</coreConfig>
+            <valenceConfig>(3s1/2) (3p1/2) (3p3/2)</valenceConfig>
+            <stateOccupation state="(3p1/2)" spinUp=".33333333" spinDown=".33333333"/>
+            <stateOccupation state="(3p3/2)" spinUp=".66666667" spinDown=".66666667"/>
+         </electronConfig>
+         <energyParameters s="3" p="3" d="3" f="4"/>
+      </species>
+   </atomSpecies>
+   <atomGroups>
+      <atomGroup species="Silicon (Si)">
+         <relPos label="                   1">1.000/8.000 1.000/8.000 1.000/8.000</relPos>
+         <relPos label="                   2">-1.000/8.000 -1.000/8.000 -1.000/8.000</relPos>
+         <force calculate="T" relaxXYZ="TTT"/>
+      </atomGroup>
+   </atomGroups>
+   <output dos="F" band="F" slice="F">
+      <checks vchk="F" cdinf="F"/>
+      <bandDOS minEnergy="-.50000000*Htr" maxEnergy=".50000000*Htr" sigma=".01500000" storeEVData="T"/>
+      <vacuumDOS vacdos="F" integ="F" star="F" nstars="0" locx1=".00000" locy1=".00000" locx2=".00000" locy2=".00000" nstm="0" tworkf=".00000"/>
+      <unfoldingBand unfoldBand="F" supercellX="1" supercellY="1" supercellZ="1"/>
+      <plotting iplot="0" polar="F">
+         <plot TwoD="T" vec1="  1.0  0.0  0.0" vec2="  0.0  1.0  0.0" vec3="  0.0  0.0  1.0" zero="  0.0  0.0  0.0" file="plot"/>
+      </plotting>
+      <chargeDensitySlicing numkpt="0" minEigenval=".00000000" maxEigenval=".00000000" nnne="0" pallst="F"/>
+      <specialOutput eonly="F" bmt="F"/>
+      <magneticCircularDichroism mcd="F" energyLo="-10.00000000" energyUp=".00000000"/>
+   </output>
+  <!-- We include the file relax.xml here to enable relaxations (see documentation) -->
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="relax.xml"> <xi:fallback/> </xi:include>
+</fleurInput>
+
+<!--
+Command line when calling inpgen (only for documentation purposes):
+inpgen -f inpSi.txt
+
+Initial (original) inpgen input (only for documentation purposes):
+Si bulk
+&lattice latsys='cF', a0=1.8897269, a=5.43 /
+2
+14 0.125 0.125 0.125
+14 -0.125 -0.125 -0.125
+-->

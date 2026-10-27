@@ -2,7 +2,7 @@
 #SBATCH --job-name=Neurodocker_FSL_bet_example
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10gb
+#SBATCH --mem=20gb
 #SBATCH --time=168:00:00
 #SBATCH --error=Neurodocker_FSL_bet_example.%J.err
 #SBATCH --output=Neurodocker_FSL_bet_example.%J.out

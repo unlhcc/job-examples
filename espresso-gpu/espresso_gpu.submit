@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=espresso_gpu_example
-#SBATCH --mem-per-cpu=1G
+#SBATCH --mem-per-cpu=2G
 #SBATCH --time=00:15:00
 #SBATCH --partition=gpu
 #SBATCH --ntasks-per-gpu=2
@@ -12,7 +12,7 @@
 # where X is the number of GPUs you want
 
 module purge
-module load compiler/nvhpc/21.9 openmpi/3.1 espresso-gpu/7.1
+module load compiler/nvhpc/21.9 openmpi/3.1 espresso-gpu/7.3
 
 # To avoid oversubscribing each GPU
 export OMP_NUM_THREADS=1

@@ -14,7 +14,7 @@ module purge
 module load miniforge/24.5
 
 # Replace "name_of_your_environment" with your conda environment's name or path.
-conda activate name_of_your_environment
+conda activate testenv
 
 # Run your code that uses the conda environment.
 python helloworld.py

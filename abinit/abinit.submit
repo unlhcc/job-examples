@@ -7,5 +7,5 @@
 #SBATCH --output=abinit_example.%J.out
 
 module purge
-module load compiler/gcc/10 openmpi/4.1 abinit/9.6
+module load compiler/gcc/10 openmpi/4.1 abinit/10.4
 mpirun abinit tbase1_1.in

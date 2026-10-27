@@ -10,10 +10,11 @@
 module purge
 module load dorado/0.4
 
+# input file is used from https://github.com/nanoporetech/dorado/blob/release-v2.1/tests/data/pod5/dna_r10.4.1_e8.2_400bps_4khz/dna_r10.4.1_e8.2_400bps_4khz-FLO_FLG114-SQK_PCB114_24-4000.pod5
 # please download the appropriate module, e.g.,:
 dorado download --model dna_r10.4.1_e8.2_400bps_hac@v4.1.0
 
 # run basecaller
 # replace model, input and output files accordingly
 dorado basecaller --device "cpu" \
-    dna_r10.4.1_e8.2_400bps_hac@v4.1.0 data.pod5 > output.bam
+    dna_r10.4.1_e8.2_400bps_hac@v4.1.0 data.pod5 > output_cpu_0.7.bam

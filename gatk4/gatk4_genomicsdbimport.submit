@@ -19,6 +19,7 @@ export TILEDB_DISABLE_FILE_LOCKING=1
 mkdir -p /scratch/$SLURM_JOBID/tmp
 mkdir -p /scratch/$SLURM_JOBID/output
 
+# input file is taken from https://github.com/broadinstitute/gatk/tree/master/src/test/resources/org/broadinstitute/hellbender/tools/walkers/annotator/allelespecific
 # Please modify the output name, as well as the input files and intervals according to your need.
 # If more memory is needed, please increase --mem and -Xmx respectively.
 # The -Xmx value should be less than the total amount of memory set with --mem by at least a few GBs.
@@ -28,8 +29,8 @@ gatk --java-options '-Djava.io.tmpdir=/scratch/$SLURM_JOBID -Xms2G -Xmx40G -XX:P
     GenomicsDBImport --genomicsdb-workspace-path /scratch/$SLURM_JOBID/output/chr1.database \
     --genomicsdb-shared-posixfs-optimizations true \
     --tmp-dir /scratch/$SLURM_JOBID/tmp \
-    -V sample1.vcf -V sample2.vcf -V sample3.vcf \
-    --intervals chr1:1000-10000
+    -V $PWD/sample1.g.vcf -V $PWD/sample2.g.vcf -V $PWD/sample3.g.vcf \
+    --intervals 20:10433000-10433100
 
 # The /scratch space is available only while the job is running,
 # so the generated output needs to be copied back to /work or /common.

@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --time=168:00:00
-#SBATCH --mem=1gb
+#SBATCH --mem=4gb
 #SBATCH --partition=batch
 
 sra_id=SRR22752329
