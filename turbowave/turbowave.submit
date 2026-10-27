@@ -6,5 +6,5 @@
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 
-module load compiler/intel/16 openmpi/1.10 turbowave/3.3
+module load compiler/intel/2024 openmpi/4.1 turbowave/3.3
 mpirun tw3d  --no-interactive stdin

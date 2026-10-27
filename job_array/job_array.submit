@@ -11,7 +11,7 @@
 module purge
 
 # Run the various examples
-module load python/3.11
+module load python/3.12
 python array.py
 
 module load java/19

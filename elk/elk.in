@@ -30,7 +30,7 @@ avec
   0.0       3.80402   3.80402
 
 sppath
-  '../../species/'
+  'species/'
 
 atoms
   2

@@ -1,0 +1,37 @@
+ 'Kr'                                       : spsymb
+ 'krypton'                                  : spname
+  -36.0000                                  : spzn
+   152754.4092                              : spmass
+  0.333333E-06    2.2000   31.7038   500    : rminsp, rmt, rmaxsp, nrmt
+  12                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    T
+   3   1   1   2.00000    T
+   3   1   2   4.00000    T
+   3   2   2   4.00000    F
+   3   2   3   6.00000    F
+   4   0   1   2.00000    F
+   4   1   1   2.00000    F
+   4   1   2   4.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   5                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -2.9818   0  T
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.8532   0  T

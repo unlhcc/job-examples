@@ -1,0 +1,49 @@
+ 'Bi'                                       : spsymb
+ 'bismuth'                                  : spname
+  -83.0000                                  : spzn
+   380947.9282                              : spmass
+  0.219529E-06    2.8000   45.2810   700    : rminsp, rmt, rmaxsp, nrmt
+  24                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    T
+   3   1   1   2.00000    T
+   3   1   2   4.00000    T
+   3   2   2   4.00000    T
+   3   2   3   6.00000    T
+   4   0   1   2.00000    T
+   4   1   1   2.00000    T
+   4   1   2   4.00000    T
+   4   2   2   4.00000    T
+   4   2   3   6.00000    T
+   4   3   3   6.00000    T
+   4   3   4   8.00000    T
+   5   0   1   2.00000    T
+   5   1   1   2.00000    T
+   5   1   2   4.00000    T
+   5   2   2   4.00000    F
+   5   2   3   6.00000    F
+   6   0   1   2.00000    F
+   6   1   1   1.00000    F
+   6   1   2   2.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   5                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.9498   0  T
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.5393   0  T

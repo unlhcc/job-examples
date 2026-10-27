@@ -2,7 +2,7 @@
 #SBATCH --job-name=ollama_cpu
 #SBATCH --output=ollama_cpu.%j.out
 #SBATCH --error=ollama_cpu.%j.err
-#SBATCH --time=01:00:00
+#SBATCH --time=168:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=30GB

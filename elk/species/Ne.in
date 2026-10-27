@@ -1,0 +1,26 @@
+ 'Ne'                                       : spsymb
+ 'neon'                                     : spname
+  -10.0000                                  : spzn
+   36785.34276                              : spmass
+  0.632456E-06    1.6000   24.5143   300    : rminsp, rmt, rmaxsp, nrmt
+   4                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    F
+   2   1   1   2.00000    F
+   2   1   2   4.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   4                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -1.3272   0  T
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.4961   0  T

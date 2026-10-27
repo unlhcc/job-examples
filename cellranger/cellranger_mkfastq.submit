@@ -10,9 +10,14 @@
 module purge
 module load apptainer
 
+wget https://cf.10xgenomics.com/supp/cell-exp/cellranger-tiny-bcl-1.2.0.tar.gz
+wget https://cf.10xgenomics.com/supp/cell-exp/cellranger-tiny-bcl-simple-1.2.0.csv
+tar -zxvf cellranger-tiny-bcl-1.2.0.tar.gz
+rm cellranger-tiny-bcl-1.2.0.tar.gz
+
 # replace the values for run and csv with the absolute location of your input data
-# example input data can be downloaded https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_fq
+# input file is used from https://www.10xgenomics.com/support/software/cell-ranger/8.0/tutorials/cr-tutorial-fq
 apptainer exec docker://unlhcc/cellranger:6.1.2 cellranger mkfastq --id=cellranger_run \
-  --run=input_dir \
-  --csv=input.csv \
-  --output-dir=cellranger_output
+  --run=$PWD/cellranger-tiny-bcl-1.2.0 \
+  --csv=$PWD/cellranger-tiny-bcl-simple-1.2.0.csv \
+  --output-dir=$PWD/cellranger_output

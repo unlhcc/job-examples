@@ -7,5 +7,5 @@
 #SBATCH --output=espresso_example.%J.out
 
 module purge
-module load compiler/intel/20 openmpi/4.0 espresso/6.8
+module load compiler/intel/20 openmpi/4.0 espresso/7.3
 mpirun pw.x < si.scf.david.in

@@ -7,5 +7,5 @@
 #SBATCH --output=lammps_example.%J.out
 
 module purge
-module load compiler/gcc/11 openmpi/4.1 lammps/23June2022
+module load compiler/gcc/11  openmpi/4.1 lammps/27June2024
 mpirun lmp < in.atm

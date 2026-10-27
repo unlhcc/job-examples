@@ -6,5 +6,5 @@
 #SBATCH --error=cp2k_example.%J.err
 #SBATCH --output=cp2k_example.%J.out
 
-module load compiler/intel/16 openmpi/3.1 cp2k/6.1
+module load compiler/intel/20 openmpi/4.1 cp2k/2024.3
 mpirun cp2k.popt Si_bulk8.inp

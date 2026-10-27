@@ -8,7 +8,7 @@
 #SBATCH --output=blast_nucleotide.%J.out
 #SBATCH --qos=short
 
-module load blast/2.2.29
+module load blast/2.7
 cp -R db/ /tmp
 cp yeast.query /tmp
 blastn -db /tmp/db/yeast.nt -query /tmp/yeast.query -out /tmp/blast_nucleotide.results

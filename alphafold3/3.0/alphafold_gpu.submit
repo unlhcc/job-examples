@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=50gb
-#SBATCH --time=168:00:00
+#SBATCH --time=15:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu
 #SBATCH --error=AlphaFold_30_GPU_examples.%J.err
@@ -14,8 +14,9 @@ module purge
 module load alphafold3/3.0
 
 # data paths should be absolute
+# input file is downloaded from https://github.com/google-deepmind/alphafold3#installation-and-running-your-first-prediction
 apptainer exec docker://unlhcc/alphafold3:3.0.1 run_alphafold.sh \
     --model_dir=$AF3_MODELS \
     --db_dir=$AF3_DBS \
-    --json_path=input.json \
-    --output_dir=output_directory
+    --json_path=$PWD/input.json \
+    --output_dir=$PWD/output_directory_gpu

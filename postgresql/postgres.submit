@@ -4,11 +4,10 @@
 #SBATCH --job-name=postgres_server
 #SBATCH --error=postgres_server.err
 #SBATCH --output=postgres_server.out
-#SBATCH --licenses=common
 #SBATCH --dependency=singleton
 #SBATCH --signal=B:SIGINT@60
 
-export POSTGRES_HOME=$COMMON/postgres
+export POSTGRES_HOME=$NRDSTOR/postgres
 export POSTGRES_PASSWORD_FILE=$POSTGRES_HOME/config/postgres-password
 export POSTGRES_USER=$USER
 export POSTGRES_DB=mydb

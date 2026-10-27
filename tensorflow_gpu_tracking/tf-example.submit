@@ -9,7 +9,7 @@
 #SBATCH --gres=gpu
 
 module purge
-module load tensorflow-gpu/py39/2.9
+module load tensorflow-gpu/py311/2.17
 
 curpath=`pwd`
 cd $WORK
@@ -18,7 +18,7 @@ gpumonpid=$!
 nohup nvidia-smi --query-compute-apps=timestamp,gpu_bus_id,pid,used_memory --format=csv  -f pid_gpu_usage_log-$SLURM_JOB_ID.csv -l 1  > /dev/null 2>&1 &
 gpumonprocpid=$!
 # Please replace <LOGIN-ID> with your HCC username
-nohup top -u <LOGIN-ID> -d 10 -c -b -n 2 > pid_lookup-$SLURM_JOB_ID.txt 2>&1 & 
+nohup top -u charishma -d 10 -c -b -n 2 > pid_lookup-$SLURM_JOB_ID.txt 2>&1 & 
 cd $curpath
 
 python tf_hello.py

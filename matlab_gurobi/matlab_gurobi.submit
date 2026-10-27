@@ -8,6 +8,6 @@
 #SBATCH --output=matlab_gurobi.%J.out
 
 module purge
-module load gurobi/py310/10 matlab/r2023a
+module load gurobi/py311/12.0 matlab/r2026a
 
 matlab -nodisplay -r "mip1(), quit"

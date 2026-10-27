@@ -6,5 +6,5 @@
 #SBATCH --error=lsdyna_example.%J.err
 #SBATCH --output=lsdyna_example.%J.out
 
-module load lsdyna/10.1
+module load lsdyna/14.0
 mpirun mpp971_s i=pendulum.k p=pfile memory=64m

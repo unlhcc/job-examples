@@ -1,0 +1,26 @@
+ 'S'                                        : spsymb
+ 'sulphur'                                  : spname
+  -16.0000                                  : spzn
+   58450.91926                              : spmass
+  0.500000E-06    2.2000   36.9680   400    : rminsp, rmt, rmaxsp, nrmt
+   7                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    F
+   3   1   1   2.00000    F
+   3   1   2   2.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   3                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.6346   0  T

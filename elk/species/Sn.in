@@ -1,0 +1,42 @@
+ 'Sn'                                       : spsymb
+ 'tin'                                      : spname
+  -50.0000                                  : spzn
+   216395.0920                              : spmass
+  0.282843E-06    2.6000   49.2770   600    : rminsp, rmt, rmaxsp, nrmt
+  17                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    T
+   3   1   1   2.00000    T
+   3   1   2   4.00000    T
+   3   2   2   4.00000    T
+   3   2   3   6.00000    T
+   4   0   1   2.00000    T
+   4   1   1   2.00000    F
+   4   1   2   4.00000    F
+   4   2   2   4.00000    F
+   4   2   3   6.00000    F
+   5   0   1   2.00000    F
+   5   1   1   1.00000    F
+   5   1   2   1.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   5                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -3.1993   0  T
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.9327   0  T

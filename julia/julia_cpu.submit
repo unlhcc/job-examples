@@ -8,7 +8,7 @@
 #SBATCH --output=julia_cpu_example.%J.out
 #SBATCH --job-name=julia_cpu_example
 
-module load julia/1.9 cuda/12.2 
+module load julia/1.10 cuda/12.2 
 
 
 julia julia_cpu.jl

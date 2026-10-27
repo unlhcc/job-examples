@@ -1,0 +1,43 @@
+ 'Mo'                                       : spsymb
+ 'molybdenum'                               : spname
+  -42.0000                                  : spzn
+   174887.9212                              : spmass
+  0.308607E-06    2.6000   48.6428   600    : rminsp, rmt, rmaxsp, nrmt
+  15                                        : nstsp
+   1   0   1   2.00000    T                 : nsp, lsp, ksp, occsp, spcore
+   2   0   1   2.00000    T
+   2   1   1   2.00000    T
+   2   1   2   4.00000    T
+   3   0   1   2.00000    T
+   3   1   1   2.00000    T
+   3   1   2   4.00000    T
+   3   2   2   4.00000    T
+   3   2   3   6.00000    T
+   4   0   1   2.00000    F
+   4   1   1   2.00000    F
+   4   1   2   4.00000    F
+   4   2   2   3.00000    F
+   4   2   3   2.00000    F
+   5   0   1   1.00000    F
+   1                                        : apword
+    0.1500   0  F                           : apwe0, apwdm, apwve
+   0                                        : nlx
+   6                                        : nlorb
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+    0.1500   1  F
+   0   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -2.3643   0  T
+   1   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -1.3863   0  T
+   2   2                                    : lorbl, lorbord
+    0.1500   0  F                           : lorbe0, lorbdm, lorbve
+   -0.1404   0  T

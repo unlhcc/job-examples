@@ -13,7 +13,7 @@
          <latency>  1.00000000e-02</latency>
          <slots>4</slots>
          <timeout>  6.00000000e+02</timeout>
-         <address>localhost</address>
+         <address>c1322.swan.hcc.unl.edu</address>
    </ffsocket>  
 <system>
     <initialize nbeads="1">

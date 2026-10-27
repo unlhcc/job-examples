@@ -9,7 +9,7 @@
 &MOTION
 
   &DRIVER
-   HOST localhost
+   HOST c1322.swan.hcc.unl.edu
    UNIX TRUE
   &END DRIVER
 &END MOTION

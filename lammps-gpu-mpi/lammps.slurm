@@ -1,10 +1,11 @@
 #!/bin/bash
-
 #SBATCH --nodes=2
 #SBATCH --ntasks=2
 #SBATCH --time 00:10:00
 #SBATCH --partition=gpu
 #SBATCH --gpus-per-node=1
+#SBATCH --mem=4gb
+#SBATCH --constraint="gpu_cc_6.0"
 #SBATCH --job-name=laamps_gpu_mpi_example
 #SBATCH --error=lammps_gpu_mpi_job.%J.err
 #SBATCH --output=lammps_gpu_mpi_job.%J.out
