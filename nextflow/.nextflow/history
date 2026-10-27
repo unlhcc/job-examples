@@ -1,2 +1,0 @@
-2026-07-12 10:56:58	17.3s	goofy_kirch	OK	c11a580d5af19c2c06801c0ba1369a76	13367c90-6427-4076-b3ad-673e02d2949b	nextflow run hello.nf -c config
-2026-07-12 10:57:13	16.8s	mad_brahmagupta	OK	c11a580d5af19c2c06801c0ba1369a76	74440d24-be4b-483e-92a0-6a0e7319b273	nextflow run hello.nf -c config
